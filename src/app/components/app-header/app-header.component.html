@@ -1,0 +1,71 @@
+<header class="border-b-[2px] border-black">
+	<div class="container mx-auto px-6 sm:px-3 lg:px-2 2xl:px-1">
+		<div class="flex justify-between items-center py-[21px] ">
+
+			<!-- burger -->
+
+			<div class="cursor-pointer xl:hidden" (click)="isMenuOpen = !isMenuOpen">
+				<div [ngClass]="{'opacity-0 rotate-45': isMenuOpen, 'mb-2': !isMenuOpen}"
+					class="w-6 h-px bg-black transition-all duration-500 ease-in-out">
+				</div>
+				<div [ngClass]="{'rotate-[123deg]': isMenuOpen}"
+					class="w-6 h-px bg-black transition-all duration-500 ease-in-out"></div>
+				<div [ngClass]="{'transform rotate-45 -translate-y-2': isMenuOpen, 'mt-2': !isMenuOpen}"
+					class="w-6 h-px bg-black transition-all duration-500 ease-in-out"></div>
+			</div>
+
+			<!-- /burger -->
+
+			<div class="cursor-pointer">
+				<img src="../../../assets/logo.svg" alt="logo">
+			</div>
+
+			<!-- nav -->
+
+			<nav>
+				<!-- mobile -->
+
+				<div class="cursor-pointer xl:hidden">
+					<img src="../../assets//header/search-normal.svg" alt="search">
+				</div>
+
+				<!-- /mobile -->
+
+				<!-- desktop -->
+				<div [ngClass]="{'-translate-x-[100%]': !isMenuOpen}"
+					class="fixed xl:relative xl:translate-x-0 transition-transform duration-[400] bg-white flex justify-start p-8 xl:p-0 items-center flex-col xl:flex-row top-[75px] xl:top-0 left-0 right-0 bottom-0">
+
+					<ul class="gap-8 xl:gap-[52px] flex flex-col xl:flex-row">
+						<li class="text-center cursor-pointer p-[10px] border-b border-transparent hover:border-black transition-border duration-[400ms] ease-in-out"
+							*ngFor="let link of links" [routerLink]="link.path">
+							<p class="text-2xl xl:text-base text-black">{{link.name}}</p>
+						</li>
+					</ul>
+
+					<div class="flex gap-8 mt-8 xl:mt-0 xl:ml-8 flex-col xl:flex-row">
+
+						<button
+							class="hidden border-[2px] border-black py-2 px-[20px] xl:flex items-center justify-center gap-3 rounded-[5px]">
+							<p class="text-base">Search</p>
+							<img src="../../../assets/header//search-normal.svg" alt="cart">
+						</button>
+
+						<div class="flex gap-8">
+							<button *ngFor="let feature of features" [routerLink]="feature?.route"
+								class="flex flex-col gap-[2px] justify-center items-center cursor-pointer">
+								<img [src]="feature.icon" [alt]="feature.name" />
+								<p class="text-[12px]">{{feature.name}}</p>
+							</button>
+						</div>
+
+					</div>
+				</div>
+				<!-- /desktop -->
+
+				<!-- /nav -->
+
+			</nav>
+
+		</div>
+	</div>
+</header>
