@@ -51,7 +51,7 @@
 						</button>
 
 						<div class="flex gap-8">
-							<button *ngFor="let feature of features" [routerLink]="feature?.route"
+							<button appScale *ngFor="let feature of features" [routerLink]="feature?.route"
 								class="flex flex-col gap-[2px] justify-center items-center cursor-pointer">
 								<img [src]="feature.icon" [alt]="feature.name" />
 								<p class="text-[12px]">{{feature.name}}</p>

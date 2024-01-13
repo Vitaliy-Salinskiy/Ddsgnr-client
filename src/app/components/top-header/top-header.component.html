@@ -10,8 +10,7 @@
 
 			<div class="flex items-center gap-x-12">
 				<div class="flex gap-3">
-					<a *ngFor="let social of socials" [href]="social.link"
-						class="w-6 h-6 hover:scale-110 transition-transform">
+					<a *ngFor="let social of socials" target="_blank" [href]="social.link" class="w-6 h-6" appScale>
 						<img [src]="social.icon" [alt]="social.name">
 					</a>
 				</div>
@@ -25,7 +24,7 @@
 						</div>
 					</div>
 
-					<div class="flex gap-[10px]">
+					<div class="flex gap-[10px] cursor-pointer">
 						<img src="/assets/header/user.svg" alt="global">
 						<p>Sign In</p>
 					</div>

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { ScaleDirective } from './directives/scale.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopHeaderComponent,
     AppHeaderComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    ScaleDirective
   ],
   imports: [
     BrowserModule,
