@@ -59,3 +59,20 @@ export const socials = [
 		link: 'https://linkedin.com'
 	}
 ]
+
+export const footerFeat = [
+	{
+		title: "Categories",
+		subtitles: ["Cufflink", "Evening Dress", "Pumps", "Umbrella", "Sari"]
+	},
+	{
+		title: "More",
+		subtitles: ["Column Two", "Down-padded Coat", "Sandals", "Brooch", "Scarf", "Ring"]
+	},
+	{
+		title: "About",
+		subtitles: ["Contact Us", "About Us", "Support/Help", "FAQ", "Scarf", "Terms and Conditions"]
+	},
+]
+
+export const footerCopyrights = ["Privacy Policy", "Terms of Service", "Cookies Settings"]

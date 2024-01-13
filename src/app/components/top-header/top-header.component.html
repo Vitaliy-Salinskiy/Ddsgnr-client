@@ -9,11 +9,7 @@
 			</div>
 
 			<div class="flex items-center gap-x-12">
-				<div class="flex gap-3">
-					<a *ngFor="let social of socials" target="_blank" [href]="social.link" class="w-6 h-6" appScale>
-						<img [src]="social.icon" [alt]="social.name">
-					</a>
-				</div>
+				<social-list></social-list>
 
 				<div class="flex gap-4">
 					<div class="flex gap-2">

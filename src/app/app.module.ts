@@ -7,6 +7,15 @@ import { TopHeaderComponent } from './components/top-header/top-header.component
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { ScaleDirective } from './directives/scale.directive';
+import { SocialListComponent } from './components/social-list/social-list.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { ServicePageComponent } from './pages/service-page/service-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +23,16 @@ import { ScaleDirective } from './directives/scale.directive';
     TopHeaderComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    ScaleDirective
+    ScaleDirective,
+    SocialListComponent,
+    HeroComponent,
+    HomePageComponent,
+    AboutPageComponent,
+    ProductsPageComponent,
+    CartPageComponent,
+    ServicePageComponent,
+    ContactPageComponent,
+    ProductDetailsPageComponent
   ],
   imports: [
     BrowserModule,
