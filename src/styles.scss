@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.appContainer {
+		@apply container mx-auto px-6 sm:px-3 3xl:px-0;
+	}
+}

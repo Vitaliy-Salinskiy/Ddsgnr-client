@@ -1,3 +1,37 @@
-<div class="hidden lg:flex">
+<div class="hidden lg:flex border-b-[2px] border-black">
+	<div class="appContainer">
+		<div class="flex justify-between py-3">
 
+			<div class="flex items-center text-sm p-[4.5px]">
+				<p>Phone Number: <a href="tel:956742455678">956 742 455 678</a></p>
+				<div class="w-[1px] h-[30px] mx-4 bg-black"></div>
+				<p>Email: <a href="mailto:info@ddsgnr.com">info@ddsgnr.com</a></p>
+			</div>
+
+			<div class="flex items-center gap-x-12">
+				<div class="flex gap-3">
+					<a *ngFor="let social of socials" [href]="social.link"
+						class="w-6 h-6 hover:scale-110 transition-transform">
+						<img [src]="social.icon" [alt]="social.name">
+					</a>
+				</div>
+
+				<div class="flex gap-4">
+					<div class="flex gap-2">
+						<img src="/assets/header/global.svg" alt="global">
+						<div class="flex gap-2 cursor-pointer">
+							<p>English</p>
+							<img src="/assets/header/arrow-down.svg" alt="arrow-down">
+						</div>
+					</div>
+
+					<div class="flex gap-[10px]">
+						<img src="/assets/header/user.svg" alt="global">
+						<p>Sign In</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>

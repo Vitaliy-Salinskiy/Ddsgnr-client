@@ -36,3 +36,26 @@ export const headerFeatures = [
 		icon: 'assets/header/notification.svg'
 	}
 ]
+
+export const socials = [
+	{
+		name: 'Facebook',
+		icon: 'assets/facebook.svg',
+		link: 'https://facebook.com'
+	},
+	{
+		name: 'Twitter',
+		icon: 'assets/twitter.svg',
+		link: 'https://twitter.com'
+	},
+	{
+		name: 'Instagram',
+		icon: 'assets/instagram.svg',
+		link: 'https://instagram.com'
+	},
+	{
+		name: 'LinkedIn',
+		icon: 'assets/linkedin.svg',
+		link: 'https://linkedin.com'
+	}
+]

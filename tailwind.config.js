@@ -8,6 +8,9 @@ module.exports = {
 			fontFamily: {
 				"roboto": ["Roboto", "sans-serif"],
 			},
+			screens: {
+				'3xl': '1596px',
+			}
 		},
 	},
 	plugins: [],
