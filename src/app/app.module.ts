@@ -16,6 +16,8 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ServicePageComponent } from './pages/service-page/service-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
+import { ButtonComponent } from './components/button/button.component';
+import { CopyrightComponent } from './components/copyright/copyright.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProductDetailsPageComponent } from './pages/product-details-page/produc
     CartPageComponent,
     ServicePageComponent,
     ContactPageComponent,
-    ProductDetailsPageComponent
+    ProductDetailsPageComponent,
+    ButtonComponent,
+    CopyrightComponent
   ],
   imports: [
     BrowserModule,

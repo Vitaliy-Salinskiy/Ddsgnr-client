@@ -60,7 +60,7 @@ export const socials = [
 	}
 ]
 
-export const footerFeat = [
+export const footerFeatures = [
 	{
 		title: "Categories",
 		subtitles: ["Cufflink", "Evening Dress", "Pumps", "Umbrella", "Sari"]
@@ -71,7 +71,7 @@ export const footerFeat = [
 	},
 	{
 		title: "About",
-		subtitles: ["Contact Us", "About Us", "Support/Help", "FAQ", "Scarf", "Terms and Conditions"]
+		subtitles: ["Contact Us", "About Us", "Support/Help", "FAQ", "Terms and Conditions"]
 	},
 ]
 

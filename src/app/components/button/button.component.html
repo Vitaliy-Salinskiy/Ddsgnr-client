@@ -1,0 +1,8 @@
+<button 
+	(click)="clickFn ? clickFn(): null"
+	class="py-3 px-6 text-black border-[2px] border-black rounded-[5px] transition-colors"
+	[ngClass]="customClasses ? customClasses : 'hover:bg-black hover:text-white'"
+	type="type ? type : 'button'"
+	>
+	{{text}}
+</button>
