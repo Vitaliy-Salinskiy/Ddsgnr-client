@@ -19,6 +19,7 @@ import { ProductDetailsPageComponent } from './pages/product-details-page/produc
 import { ButtonComponent } from './components/button/button.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 import { AboutComponent } from './components/about/about.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 @NgModule({
 	declarations: [
@@ -38,7 +39,8 @@ import { AboutComponent } from './components/about/about.component';
 		ProductDetailsPageComponent,
 		ButtonComponent,
 		CopyrightComponent,
-		AboutComponent
+		AboutComponent,
+  SalesComponent
 	],
 	imports: [
 		BrowserModule,
