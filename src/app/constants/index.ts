@@ -129,3 +129,18 @@ export const productsPages = [
 		subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
 	},
 ]
+
+export const contactUs = [
+	{
+		img: 'assets/contact/email.svg',
+		title: 'hello@relume.io',
+	},
+	{
+		img: 'assets/contact/phone.svg',
+		title: '+1 (555) 000-0000',
+	},
+	{
+		img: 'assets/contact/pin.svg',
+		title: '123 Sample St, Sydney NSW 2000 AU',
+	},
+]
