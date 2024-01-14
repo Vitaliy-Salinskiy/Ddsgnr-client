@@ -114,3 +114,18 @@ export const serviceBenefits = [
 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."
 	},
 ]
+
+export const productsPages = [
+	{
+		title: 'Our Products',
+		subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+	},
+	{
+		title: 'Men',
+		subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+	},
+	{
+		title: 'Woman',
+		subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+	},
+]

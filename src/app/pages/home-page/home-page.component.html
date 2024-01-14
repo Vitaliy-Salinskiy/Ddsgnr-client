@@ -1,4 +1,5 @@
 <hero></hero>
 <about></about>
+<products *ngFor="let page of pages" [title]="page.title" [subtitle]="page.subtitle" [isMain]="false"></products>
 <services></services>
 <sales></sales>

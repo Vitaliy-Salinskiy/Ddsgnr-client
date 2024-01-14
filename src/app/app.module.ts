@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,8 @@ import { CopyrightComponent } from './components/copyright/copyright.component';
 import { AboutComponent } from './components/about/about.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
 	declarations: [
@@ -41,12 +45,16 @@ import { ServicesComponent } from './components/services/services.component';
 		ButtonComponent,
 		CopyrightComponent,
 		AboutComponent,
-  SalesComponent,
-  ServicesComponent
+		SalesComponent,
+		ServicesComponent,
+  ProductsComponent,
+  ProductCardComponent
 	],
 	imports: [
 		BrowserModule,
-		AppRoutingModule
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

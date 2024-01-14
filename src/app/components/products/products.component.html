@@ -1,0 +1,34 @@
+<section>
+	<div class="appContainer">
+		<div class="flex flex-col gap-12 xl:gap-16 items-center xl:px-12 py-12 xl:py-28">
+
+			<div class="flex flex-col items-center gap-20  text-center">
+				<div class="flex flex-col gap-6">
+					<div class="flex flex-col gap-6">
+						<h2 class="heading-2">{{title}}</h2>
+						<p class="text max-w-[380px] md:max-w-none">{{subtitle}}</p>
+					</div>
+
+
+					<div>
+						<button (click)="changeCategory(category.name)" *ngFor="let category of categories"
+							class="py-2 px-4 border-b-[2px] transition-all"
+							[ngClass]="category.isActive ? 'border-black' : 'border-transparent'">
+							<p>{{category.name}}</p>
+						</button>
+					</div>
+				</div>
+
+				<div class="flex flex-col sm:flex-row sm:flex-wrap gap-8 sm:gap-y-16 sm:justify-center sm:items-center">
+					<product-card *ngFor="let product of products" [product]="product"></product-card>
+				</div>
+
+			</div>
+
+			<div *ngIf="!isMain" routerLink="/products">
+				<app-button text="View All"></app-button>
+			</div>
+
+		</div>
+	</div>
+</section>
