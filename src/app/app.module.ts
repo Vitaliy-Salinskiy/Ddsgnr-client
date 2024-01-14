@@ -20,6 +20,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 import { AboutComponent } from './components/about/about.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { ServicesComponent } from './components/services/services.component';
 
 @NgModule({
 	declarations: [
@@ -40,7 +41,8 @@ import { SalesComponent } from './components/sales/sales.component';
 		ButtonComponent,
 		CopyrightComponent,
 		AboutComponent,
-  SalesComponent
+  SalesComponent,
+  ServicesComponent
 	],
 	imports: [
 		BrowserModule,

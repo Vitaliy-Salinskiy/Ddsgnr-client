@@ -1,0 +1,33 @@
+<section>
+	<div class="appContainer">
+		<div class="flex flex-col xl:flex-row xl:justify-between gap-12 xl:px-16 py-12 xl:py-28">
+
+			<div class="xl:flex-1 xl:max-w-[380px]">
+				<div class="flex flex-col gap-4">
+					<h3 class="subtitle">Services</h3>
+					<h2 class="heading-2">Why Choose Us</h2>
+				</div>
+				<p class="mt-6 text">Welcome to our furniture store, where we believe that a well-furnished
+					home is a happy home. We offer a wide selection of high-quality furniture for every room in your home,
+					from cozy sofas and elegant dining sets to stylish office desks and comfortable beds.</p>
+				<app-button customClasses="mt-10 bg-black text-white hover:bg-white hover:text-black"
+					text="Shop Now"></app-button>
+			</div>
+
+			<ul
+				class="flex flex-col gap-12 md:gap-x-12 md:gap-y-8 lg:gap-y-16 md:flex-row md:flex-wrap xl:flex-[2] xl:justify-end">
+				<li *ngFor="let benefit of services; let index = index"
+					class="flex flex-col gap-6 md:w-[calc(50%-24px)] lg:w-[calc(50%-48px)] xl:w-[402px]">
+					<h4 class="text-5xl font-bold leading-[120%]">{{index + 1}}</h4>
+					<h5 class="text-2xl font-bold leading-[140%]">{{benefit.title}}</h5>
+					<p class="text-base leading-[150%]">{{benefit.description}}</p>
+					<a class="flex gap-2" routerLink="/services">
+						<p class="text-black">Learn more</p>
+						<img src="/assets/service/arrow-right.svg" alt="arrow-right">
+					</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</section>

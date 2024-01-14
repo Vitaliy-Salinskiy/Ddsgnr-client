@@ -94,4 +94,23 @@ export const aboutUs = [
 		title: "5-star reviews",
 		value: "100+"
 	},
-] 
+]
+
+export const serviceBenefits = [
+	{
+		title: "Affordable Prices",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."
+	},
+	{
+		title: "Free Shipping",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."
+	},
+	{
+		title: "Best Quality",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."
+	},
+	{
+		title: "Money Back Guaranty",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."
+	},
+]
