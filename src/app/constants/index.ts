@@ -76,3 +76,22 @@ export const footerFeatures = [
 ]
 
 export const footerCopyrights = ["Privacy Policy", "Terms of Service", "Cookies Settings"]
+
+export const aboutUs = [
+	{
+		title: "Increase in productivity",
+		value: "10x"
+	},
+	{
+		title: "Product",
+		value: "300+"
+	},
+	{
+		title: "Happy customers",
+		value: "5k+"
+	},
+	{
+		title: "5-star reviews",
+		value: "100+"
+	},
+] 

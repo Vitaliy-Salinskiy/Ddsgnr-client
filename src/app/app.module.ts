@@ -20,29 +20,29 @@ import { ButtonComponent } from './components/button/button.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopHeaderComponent,
-    AppHeaderComponent,
-    AppFooterComponent,
-    ScaleDirective,
-    SocialListComponent,
-    HeroComponent,
-    HomePageComponent,
-    AboutPageComponent,
-    ProductsPageComponent,
-    CartPageComponent,
-    ServicePageComponent,
-    ContactPageComponent,
-    ProductDetailsPageComponent,
-    ButtonComponent,
-    CopyrightComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TopHeaderComponent,
+		AppHeaderComponent,
+		AppFooterComponent,
+		ScaleDirective,
+		SocialListComponent,
+		HeroComponent,
+		HomePageComponent,
+		AboutPageComponent,
+		ProductsPageComponent,
+		CartPageComponent,
+		ServicePageComponent,
+		ContactPageComponent,
+		ProductDetailsPageComponent,
+		ButtonComponent,
+		CopyrightComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

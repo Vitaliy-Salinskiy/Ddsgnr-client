@@ -9,7 +9,10 @@ module.exports = {
 				"roboto": ["Roboto", "sans-serif"],
 			},
 			screens: {
-				'3xl': '1596px',
+				'3xl': '1624px',
+			},
+			colors: {
+				"app-white": "$F7F7F7"
 			}
 		},
 	},

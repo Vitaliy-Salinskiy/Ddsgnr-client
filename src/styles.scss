@@ -6,6 +6,19 @@
 
 @layer components {
 	.appContainer {
-		@apply container mx-auto px-6 sm:px-3 3xl:px-0;
+		@apply container mx-auto px-6 xl:px-3 3xl:px-0;
 	}
+
+	.heading-2 {
+		@apply text-[32px] xl:text-[48px] font-bold leading-[130%];
+	}
+
+	.subtitle {
+		@apply text-base font-semibold
+	}
+
+	.text {
+		@apply text-[18px] font-normal
+	}
+
 }
