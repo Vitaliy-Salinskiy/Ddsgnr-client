@@ -11,6 +11,8 @@ import { RootPageComponent } from './pages/root-page/root-page.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 
 const routes: Routes = [
 	{
@@ -20,6 +22,8 @@ const routes: Routes = [
 			{ path: "", redirectTo: "login", pathMatch: "full" },
 			{ path: "login", component: LoginPageComponent },
 			{ path: "register", component: RegisterPageComponent },
+			{ path: "forgot-password", component: ForgotPasswordPageComponent },
+			{ path: "otp", component: OtpPageComponent },
 		]
 	},
 	{

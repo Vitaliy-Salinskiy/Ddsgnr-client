@@ -1,0 +1,37 @@
+<div class="h-screen w-full flex justify-center items-center py-[64px] xl:py-0">
+	<div class="hidden h-screen xl:flex xl:flex-[4] 2xl:flex-[3]">
+		<img src="/assets/auth/opt.jpg" alt="forgot-page" class="h-full w-full bg-cover">
+	</div>
+
+	<div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12">
+
+		<div class="group cursor-pointer w-16" routerLink="/auth/login">
+			<div class="flex gap-2 items-center">
+				<img src="/assets/auth/arrow-left.svg" alt="arrow-left"
+					class="transition-transform duration-200 group-hover:rotate-180">
+				<p class="text-auth-black text-lg group-hover:font-bold transition-all">Back</p>
+			</div>
+		</div>
+
+		<div class="flex flex-col gap-[5px] mt-[30px]">
+			<h1 class="auth-heading">Enter OTP</h1>
+			<h3 class="auth-subtitle">We have share a code of your registered email address robertfox@example.com</h3>
+		</div>
+
+		<form class="w-full flex flex-col gap-4 mt-8" [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+			<div class="w-full flex flex-col">
+
+				<div class="w-full flex flex-row gap-4">
+					<ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
+				</div>
+
+				<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
+					text="Verify" routerLink="/auth/otp"></app-button>
+			</div>
+
+		</form>
+
+
+	</div>
+
+</div>

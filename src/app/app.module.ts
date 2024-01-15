@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,8 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { RootPageComponent } from './pages/root-page/root-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 
 @NgModule({
 	declarations: [
@@ -58,13 +61,17 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 		AuthPageComponent,
 		RootPageComponent,
 		LoginPageComponent,
-		RegisterPageComponent
+		RegisterPageComponent,
+		ForgotPasswordPageComponent,
+		OtpPageComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
+		NgOtpInputModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

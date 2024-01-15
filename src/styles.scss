@@ -26,7 +26,7 @@
 	}
 
 	.auth-subtitle {
-		@apply text-[16] text-auth-gray leading-[100%];
+		@apply text-[16] text-auth-gray leading-[130%];
 	}
 
 	.auth-label {
@@ -70,4 +70,14 @@ input[type="checkbox"] {
 	&:focus {
 		border-color: #e9ecee;
 	}
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
 }
