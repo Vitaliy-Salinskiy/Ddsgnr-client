@@ -26,6 +26,10 @@ import { ServicesComponent } from './components/services/services.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { RootPageComponent } from './pages/root-page/root-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
 	declarations: [
@@ -48,9 +52,13 @@ import { ContactComponent } from './components/contact/contact.component';
 		AboutComponent,
 		SalesComponent,
 		ServicesComponent,
-  ProductsComponent,
-  ProductCardComponent,
-  ContactComponent
+		ProductsComponent,
+		ProductCardComponent,
+		ContactComponent,
+		AuthPageComponent,
+		RootPageComponent,
+		LoginPageComponent,
+		RegisterPageComponent
 	],
 	imports: [
 		BrowserModule,

@@ -1,0 +1,44 @@
+<div class="min-h-screen w-full flex justify-center items-center py-[100px] xl:py-0">
+	<div class="hidden h-screen xl:flex xl:flex-[5]">
+		<img src="/assets/auth/login.jpg" alt="login-page" class="h-full w-full bg-cover">
+	</div>
+
+	<div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12">
+
+		<div class="flex flex-col gap-[5px]">
+			<h1 class="auth-heading">Welcome 👋</h1>
+			<h3 class="auth-subtitle">Please login here</h3>
+		</div>
+
+		<form class="w-full flex flex-col gap-4 mt-8">
+			<div class="w-full flex flex-col gap-4">
+				<div class="w-full flex flex-col gap-[5px]">
+					<label class="auth-label">Email Address</label>
+					<input class="auth-input" type="text" placeholder="Enter your email">
+				</div>
+				<div class="w-full flex flex-col gap-[5px]">
+					<label class="auth-label">Username</label>
+					<input class="auth-input" type="text" placeholder="Enter your username">
+				</div>
+				<div class="w-full flex flex-col gap-[5px]">
+					<label class="auth-label">Password</label>
+					<input class="auth-input" type="text" placeholder="Enter your password">
+				</div>
+
+				<div class="flex justify-between">
+					<div class="flex gap-[10px] items-center">
+						<input type="checkbox">
+						<label class="text-auth-black text-[16px]">Remember Me</label>
+					</div>
+					<p class="text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Forgot
+						Password?</p>
+				</div>
+			</div>
+		</form>
+
+
+		<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
+			text="Login"></app-button>
+	</div>
+
+</div>

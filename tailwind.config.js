@@ -12,7 +12,9 @@ module.exports = {
 				'3xl': '1624px',
 			},
 			colors: {
-				"app-white": "$F7F7F7"
+				"app-white": "#F7F7F7",
+				"auth-gray": "#A4A1AA",
+				"auth-black": "#131118",
 			}
 		},
 	},

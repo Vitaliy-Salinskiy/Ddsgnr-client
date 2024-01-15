@@ -21,4 +21,53 @@
 		@apply text-[18px] font-normal
 	}
 
+	.auth-heading {
+		@apply text-[30px] text-auth-black leading-[100%];
+	}
+
+	.auth-subtitle {
+		@apply text-[16] text-auth-gray leading-[100%];
+	}
+
+	.auth-label {
+		@apply text-[12px] text-auth-black;
+	}
+
+	.auth-input {
+		@apply text-[16px] text-auth-black border border-auth-black rounded-[10px] p-4;
+	}
+
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	background-color: #131118;
+	border: 1px solid #cacece;
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&:checked::before {
+		content: "";
+		position: absolute;
+		width: 5px;
+		height: 10px;
+		border: solid white;
+		border-width: 0 2px 2px 0;
+		top: 2px;
+		left: 6px;
+		transform: rotate(45deg);
+	}
+
+	&:checked {
+		background-color: #131118;
+		border-color: #adb8c0;
+	}
+
+	&:focus {
+		border-color: #e9ecee;
+	}
 }
