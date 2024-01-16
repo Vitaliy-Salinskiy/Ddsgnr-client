@@ -37,6 +37,10 @@
 		@apply text-[16px] text-auth-black border border-auth-black rounded-[10px] p-4;
 	}
 
+	.auth-input-error {
+		@apply text-red-500 border-red-500 outline-red-500 placeholder:text-red-500;
+	}
+
 }
 
 input[type="checkbox"] {

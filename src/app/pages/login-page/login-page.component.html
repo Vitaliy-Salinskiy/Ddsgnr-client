@@ -10,29 +10,43 @@
 			<h3 class="auth-subtitle">Please login here</h3>
 		</div>
 
-		<form class="w-full flex flex-col mt-8">
+		<form class="w-full flex flex-col mt-8" [formGroup]="loginForm" (ngSubmit)="login()">
 			<div class="w-full flex flex-col gap-4">
 				<div class="w-full flex flex-col gap-4">
 					<div class="w-full flex flex-col gap-[5px]">
-						<label class="auth-label">Email Address</label>
-						<input class="auth-input" type="text" placeholder="Enter your email">
+						<label
+							[ngClass]="{'text-red-500': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
+							class="auth-label" for="username">Username</label>
+						<input
+							[ngClass]="{'auth-input-error': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
+							id="username" formControlName="username" class="auth-input" type="text"
+							placeholder="Enter your username">
+						<p class="text-sm text-red-500"
+							*ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid">
+							{{ getErrorMessage(loginForm, 'username') }}
+						</p>
 					</div>
 					<div class="w-full flex flex-col gap-[5px]">
-						<label class="auth-label">Username</label>
-						<input class="auth-input" type="text" placeholder="Enter your username">
-					</div>
-					<div class="w-full flex flex-col gap-[5px]">
-						<label class="auth-label">Password</label>
-						<input class="auth-input" type="text" placeholder="Enter your password">
+						<label
+							[ngClass]="{'text-red-500': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
+							class="auth-label" for="password">Password</label>
+						<input
+							[ngClass]="{'auth-input-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
+							formControlName="password" class="auth-input" id="password" type="text"
+							placeholder="Enter your password">
+						<p class="text-sm text-red-500"
+							*ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+							{{ getErrorMessage(loginForm, 'password') }}
+						</p>
 					</div>
 
 					<div class="flex justify-between">
-						<div class="flex gap-[10px] items-center">
-							<input type="checkbox">
-							<label class="text-auth-black text-[16px]">Remember Me</label>
+						<div class="flex gap-[10px] items-center cursor-pointer">
+							<input type="checkbox" id="checkbox">
+							<label for="checkbox" class="text-auth-black text-[16px]">Remember Me</label>
 						</div>
 						<p routerLink="/auth/forgot-password"
-							class="text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Forgot
+							class=" text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Forgot
 							Password?</p>
 					</div>
 
@@ -41,6 +55,9 @@
 							class="text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Don't have
 							account?</p>
 					</div>
+
+					<p class="text-red-500 text-sm font-semibold" *ngIf="error">*{{error}}</p>
+
 				</div>
 			</div>
 

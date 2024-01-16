@@ -33,4 +33,7 @@ export interface IProfile {
 	image: string | null;
 }
 
+export interface IToken {
+	access_token: string;
+}
 
