@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { IProfile, IToken, IUserDto } from '../interfaces';
@@ -9,6 +9,9 @@ import { IProfile, IToken, IUserDto } from '../interfaces';
 	providedIn: 'root'
 })
 export class AuthService {
+
+	private _userProfile = new BehaviorSubject<IProfile | null>(null);
+	userProfile$ = this._userProfile.asObservable();
 
 	private apiUrl: string = environment.apiUrl;
 
@@ -20,6 +23,13 @@ export class AuthService {
 
 	getProfile(): Observable<IProfile> {
 		return this.http.get<IProfile>(`${this.apiUrl}/auth/profile`, { withCredentials: true })
+			.pipe(
+				tap((profile: IProfile) => {
+					console.log(profile);
+					this._userProfile.next(profile);
+				})
+			)
 	}
+
 
 }

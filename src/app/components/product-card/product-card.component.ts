@@ -1,15 +1,11 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces';
 
 @Component({
 	selector: 'product-card',
 	templateUrl: './product-card.component.html',
 })
-export class ProductCardComponent implements OnChanges {
+export class ProductCardComponent {
 	@Input() product: IProduct;
-
-	ngOnChanges() {
-		console.log(`http://localhost:5000/` + this.product.image);
-	}
 
 }

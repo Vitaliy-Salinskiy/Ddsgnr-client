@@ -11,7 +11,7 @@
 			<div class="flex items-center gap-x-12">
 				<social-list></social-list>
 
-				<div class="flex gap-4">
+				<div class="flex items-center gap-4">
 					<div class="flex gap-2">
 						<img src="/assets/header/global.svg" alt="global">
 						<div class="flex gap-2 cursor-pointer">
@@ -20,10 +20,29 @@
 						</div>
 					</div>
 
-					<div class="flex gap-[10px] cursor-pointer">
-						<img src="/assets/header/user.svg" alt="global">
-						<p>Sign In</p>
+					<div *ngIf="userProfile; else unauthorized" class="flex items-center gap-2 cursor-pointer">
+						<div class="flex items-center gap-2">
+							<img *ngIf="userProfile?.image; else unknown" src="/assets/header/search.svg" alt="global">
+							<p>{{userProfile.username}}</p>
+						</div>
+						<div class="h-[20px] w-[1px] bg-black"></div>
+						<a class="text-sm" routerLink="/auth/login">Sign Out</a>
 					</div>
+
+					<ng-template #unknown>
+						<div class="bg-black text-white flex justify-center items-center rounded-full h-7 w-7">
+							{{userProfile?.username.slice(0, 1).toUpperCase()}}
+						</div>
+					</ng-template>
+
+					<ng-template #unauthorized>
+						<div class="flex gap-[10px] cursor-pointer">
+							<a routerLink="/auth/login">
+								<img src="/assets/header/user.svg" alt="global">
+								<p>Sign In</p>
+							</a>
+						</div>
+					</ng-template>
 				</div>
 			</div>
 

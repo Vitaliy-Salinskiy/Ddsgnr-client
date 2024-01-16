@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { getErrorMessage } from '../../utils';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IProfile, IToken } from 'src/app/interfaces';
+import { IToken } from 'src/app/interfaces';
 import { Router } from '@angular/router';
 
 @Component({
