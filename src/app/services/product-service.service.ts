@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { IProduct } from '../interfaces/product';
+import { IProduct } from '../interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class ProductService {
 
 	constructor(private http: HttpClient) { }
 
-	getProducts(): Observable<any> {
+	getProducts(): Observable<IProduct[]> {
 		const data = this.http.get<IProduct[]>(`${this.url}/products`);
 		return data;
 	}

@@ -5,6 +5,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			height: {
+				"inherit": "inherit",
+			},
 			fontFamily: {
 				"roboto": ["Roboto", "sans-serif"],
 			},

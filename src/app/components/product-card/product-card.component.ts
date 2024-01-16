@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { IProduct } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces';
 
 @Component({
 	selector: 'product-card',
