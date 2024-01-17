@@ -18,7 +18,7 @@
 						<label
 							[ngClass]="{'text-red-500': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
 							for="email" class="auth-label">Email Address</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
 							id="email" formControlName="email" class="auth-input" type="email" placeholder="Enter your email">
 						<p *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid"
@@ -31,7 +31,7 @@
 						<label
 							[ngClass]="{'text-red-500': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
 							for="username" class="auth-label">Username</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
 							id="username" formControlName="username" class="auth-input" type="text"
 							placeholder="Enter your username">
@@ -45,7 +45,7 @@
 						<label
 							[ngClass]="{'text-red-500': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
 							for="password" class="auth-label">Password</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
 							id="password" formControlName="password" class="auth-input" type="password"
 							placeholder="Enter your password">
@@ -59,7 +59,7 @@
 						<label
 							[ngClass]="{'text-red-500': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
 							for="confirmPassword" class="auth-label">Confirm Password</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
 							id="confirmPassword" formControlName="confirmPassword" class="auth-input" type="password"
 							placeholder="Enter your password again">

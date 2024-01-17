@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export interface IProduct {
 	brand: string;
 	image: string;
@@ -27,7 +29,7 @@ export interface IUserDto {
 }
 
 export interface IProfile {
-	sub: string;
+	userId: string;
 	username: string;
 	email: string;
 	image: string | null;
@@ -37,3 +39,6 @@ export interface IToken {
 	access_token: string;
 }
 
+export interface IDeactivateComponent {
+	canExit: () => boolean | Promise<boolean> | Observable<boolean>;
+}

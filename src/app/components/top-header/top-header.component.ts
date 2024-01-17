@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { IProfile } from 'src/app/interfaces';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -7,7 +8,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 	selector: 'top-header',
 	templateUrl: './top-header.component.html',
 })
-export class TopHeaderComponent {
+export class TopHeaderComponent implements OnInit {
 
 	userProfile: IProfile | null = null;
 	private subscription: Subscription;
@@ -18,7 +19,6 @@ export class TopHeaderComponent {
 		this.subscription = this.authService.userProfile$.subscribe(
 			profile => {
 				this.userProfile = profile;
-				console.log(this.userProfile?.username);
 			}
 		);
 	}

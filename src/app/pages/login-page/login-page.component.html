@@ -17,7 +17,7 @@
 						<label
 							[ngClass]="{'text-red-500': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
 							class="auth-label" for="username">Username</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
 							id="username" formControlName="username" class="auth-input" type="text"
 							placeholder="Enter your username">
@@ -30,7 +30,7 @@
 						<label
 							[ngClass]="{'text-red-500': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
 							class="auth-label" for="password">Password</label>
-						<input
+						<input autocomplete="off"
 							[ngClass]="{'auth-input-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
 							formControlName="password" class="auth-input" id="password" type="text"
 							placeholder="Enter your password">

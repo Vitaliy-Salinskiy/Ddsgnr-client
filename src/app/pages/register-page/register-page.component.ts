@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import { IUser, IUserDto } from 'src/app/interfaces';
+import { IDeactivateComponent, IUser, IUserDto } from 'src/app/interfaces';
 import { getErrorMessage } from '../../utils';
 import { UserService } from 'src/app/services/user-service.service';
 
@@ -11,10 +12,11 @@ import { UserService } from 'src/app/services/user-service.service';
 	selector: 'app-register-page',
 	templateUrl: './register-page.component.html',
 })
-export class RegisterPageComponent {
+export class RegisterPageComponent implements IDeactivateComponent, OnInit {
 
 	registerForm: FormGroup;
 	error: string = null;
+	formSubmitted: boolean = false;
 	getErrorMessage = getErrorMessage;
 
 	constructor(private userService: UserService, private router: Router) {
@@ -54,6 +56,7 @@ export class RegisterPageComponent {
 
 			this.userService.createUser(credentials).subscribe({
 				next: (user: IUser) => {
+					this.formSubmitted = true;
 					this.registerForm.reset();
 					this.router.navigateByUrl("/auth/login");
 				},
@@ -68,6 +71,14 @@ export class RegisterPageComponent {
 			});
 
 		}
+	}
+
+	canExit: () => boolean | Promise<boolean> | Observable<boolean> = () => {
+		return this.registerForm && this.registerForm.dirty ? confirm("Are you sure you want to leave?") : true;
+	}
+
+	ngOnInit(): void {
+		this.formSubmitted = false;
 	}
 
 }

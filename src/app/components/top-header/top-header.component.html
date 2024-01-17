@@ -22,8 +22,9 @@
 
 					<div *ngIf="userProfile; else unauthorized" class="flex items-center gap-2 cursor-pointer">
 						<div class="flex items-center gap-2">
-							<img *ngIf="userProfile?.image; else unknown" src="/assets/header/search.svg" alt="global">
-							<p>{{userProfile.username}}</p>
+							<img class="h-7 w-7 object-cover rounded-full" *ngIf="userProfile?.image; else unknown"
+								[src]="'http://localhost:5000/' + userProfile.image" alt="avatar">
+							<p class="font-semibold">{{userProfile.username}}</p>
 						</div>
 						<div class="h-[20px] w-[1px] bg-black"></div>
 						<a class="text-sm" routerLink="/auth/login">Sign Out</a>
@@ -36,8 +37,8 @@
 					</ng-template>
 
 					<ng-template #unauthorized>
-						<div class="flex gap-[10px] cursor-pointer">
-							<a routerLink="/auth/login">
+						<div class="cursor-pointer">
+							<a routerLink="/auth/login" class="flex gap-[10px]">
 								<img src="/assets/header/user.svg" alt="global">
 								<p>Sign In</p>
 							</a>

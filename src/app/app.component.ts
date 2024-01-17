@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './services/auth-service.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+
+import { AuthService } from './services/auth-service.service';
 
 @Component({
 	selector: 'app-root',
@@ -17,7 +18,11 @@ export class AppComponent implements OnInit {
 		this.router.events.pipe(
 			filter(event => event instanceof NavigationEnd)
 		).subscribe(() => {
-			this.authService.getProfile().subscribe();
+			this.authService.getProfile().subscribe({
+				error: (err) => {
+
+				}
+			});
 		})
 	}
 }

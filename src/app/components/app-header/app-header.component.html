@@ -38,7 +38,7 @@
 
 					<ul class="gap-8 xl:gap-[52px] flex flex-col xl:flex-row">
 						<li class="text-center cursor-pointer p-[10px] border-b border-transparent hover:border-black transition-border duration-[400ms] ease-in-out"
-							*ngFor="let link of links" [routerLink]="link.path">
+							*ngFor="let link of links" [routerLink]="link.path" (click)="changePage()">
 							<p class="text-2xl xl:text-base text-black">{{link.name}}</p>
 						</li>
 					</ul>
@@ -48,11 +48,12 @@
 						<button
 							class="hidden border-[2px] border-black py-2 px-[20px] xl:flex items-center justify-center gap-3 rounded-[5px]">
 							<p class="text-base">Search</p>
-							<img src="../../../assets/header//search-normal.svg" alt="cart">
+							<img src="../../../assets/header//search-normal.svg" alt="search">
 						</button>
 
 						<div class="flex gap-8">
-							<button appScale *ngFor="let feature of features" [routerLink]="feature?.route"
+							<button appScale *ngFor="let feature of features"
+								[routerLink]="feature.name === 'Cart' ? (userProfile !== null ? '/cart/' + userProfile?.userId : '/auth/login') : feature.route || '/'"
 								class="flex flex-col gap-[2px] justify-center items-center cursor-pointer">
 								<img [src]="feature.icon" [alt]="feature.name" />
 								<p class="text-[12px]">{{feature.name}}</p>

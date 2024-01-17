@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { IProfile, IToken, IUserDto } from '../interfaces';
@@ -10,12 +10,14 @@ import { IProfile, IToken, IUserDto } from '../interfaces';
 })
 export class AuthService {
 
-	private _userProfile = new BehaviorSubject<IProfile | null>(null);
-	userProfile$ = this._userProfile.asObservable();
+	userProfile = new BehaviorSubject<IProfile | null>(null);
+	userProfile$ = this.userProfile.asObservable();
 
 	private apiUrl: string = environment.apiUrl;
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) {
+		this.getProfile().subscribe();
+	}
 
 	login(credentials: IUserDto): Observable<IToken> {
 		return this.http.post<IToken>(`${this.apiUrl}/auth/login`, credentials, { withCredentials: true })
@@ -25,10 +27,13 @@ export class AuthService {
 		return this.http.get<IProfile>(`${this.apiUrl}/auth/profile`, { withCredentials: true })
 			.pipe(
 				tap((profile: IProfile) => {
-					console.log(profile);
-					this._userProfile.next(profile);
+					this.userProfile.next(profile);
+				}),
+				catchError((err) => {
+					this.userProfile.next(null);
+					return of(null);
 				})
-			)
+			);
 	}
 
 

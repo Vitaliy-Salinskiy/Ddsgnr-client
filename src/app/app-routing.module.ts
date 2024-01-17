@@ -13,6 +13,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { OtpPageComponent } from './pages/otp-page/otp-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+
+import { canActivate, canDeactivate } from './guards/auth.guard';
 
 const routes: Routes = [
 	{
@@ -20,8 +23,8 @@ const routes: Routes = [
 		component: AuthPageComponent,
 		children: [
 			{ path: "", redirectTo: "login", pathMatch: "full" },
-			{ path: "login", component: LoginPageComponent },
-			{ path: "register", component: RegisterPageComponent },
+			{ path: "login", component: LoginPageComponent, canDeactivate: [canDeactivate] },
+			{ path: "register", component: RegisterPageComponent, canDeactivate: [canDeactivate] },
 			{ path: "forgot-password", component: ForgotPasswordPageComponent },
 			{ path: "otp", component: OtpPageComponent },
 		]
@@ -36,9 +39,11 @@ const routes: Routes = [
 			{ path: "products", component: ProductsPageComponent },
 			{ path: "products/:id", component: ProductDetailsPageComponent },
 			{ path: "services", component: ServicePageComponent },
-			{ path: "contact", component: ContactPageComponent },
+			{ path: "contact", component: ContactPageComponent, canActivate: [canActivate] },
+			{ path: "cart/:id", component: CartPageComponent, canActivate: [canActivate] },
 		],
 	},
+	{ path: "**", redirectTo: "home", pathMatch: "full" }
 ];
 
 @NgModule({
