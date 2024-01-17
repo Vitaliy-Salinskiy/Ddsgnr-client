@@ -16,6 +16,7 @@ import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 import { canActivate, canDeactivate } from './guards/auth.guard';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +38,7 @@ const routes: Routes = [
 			{ path: "home", component: HomePageComponent },
 			{ path: "about", component: AboutPageComponent },
 			{ path: "products", component: ProductsPageComponent },
+			{ path: "products/create", component: ProductFormComponent },
 			{ path: "products/:id", component: ProductDetailsPageComponent },
 			{ path: "services", component: ServicePageComponent },
 			{ path: "contact", component: ContactPageComponent, canActivate: [canActivate] },

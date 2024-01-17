@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { OtpPageComponent } from './pages/otp-page/otp-page.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -63,7 +66,8 @@ import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 		LoginPageComponent,
 		RegisterPageComponent,
 		ForgotPasswordPageComponent,
-		OtpPageComponent
+		OtpPageComponent,
+		ProductFormComponent
 	],
 	imports: [
 		BrowserModule,
@@ -71,7 +75,9 @@ import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 		HttpClientModule,
 		FormsModule,
 		NgOtpInputModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		BrowserAnimationsModule,
+		NgxDropzoneModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -1,8 +1,46 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$ddsgnr-client-primary: mat.define-palette(mat.$indigo-palette);
+$ddsgnr-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$ddsgnr-client-warn: mat.define-palette(mat.$red-palette);
+
+$ddsgnr-client-theme: mat.define-light-theme((color: (primary: $ddsgnr-client-primary,
+				accent: $ddsgnr-client-accent,
+				warn: $ddsgnr-client-warn,
+			)));
+
+
+@include mat.all-component-themes($ddsgnr-client-theme);
+
 @import '~typeface-roboto/index.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #10F2C5 #000;
+}
+
+::-webkit-scrollbar {
+	width: 13px;
+}
+
+::-webkit-scrollbar-track {
+	background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #10F2C5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #58c7b1;
+}
 
 @layer components {
 	.appContainer {
@@ -84,4 +122,18 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
 	-moz-appearance: textfield;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+ngx-dropzone {
+	height: 400px;
 }

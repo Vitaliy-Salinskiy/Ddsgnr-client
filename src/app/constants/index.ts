@@ -144,3 +144,19 @@ export const contactUs = [
 		title: '123 Sample St, Sydney NSW 2000 AU',
 	},
 ]
+
+export const DROPZONE_STYLE = {
+	'min-height.px': 400,
+	'height': 'auto',
+	'border': '2px dashed #000',
+	'position': 'relative',
+	'display': 'flex',
+	'flex-wrap': 'wrap',
+	'padding.px': 16,
+	'justify-content': 'flex-start',
+	'align-items': 'flex-start',
+	'gap.px': 10,
+	'overflow-x': 'hidden',
+	'overflow-y': 'auto',
+	'scrollbar-width': 'none'
+};
