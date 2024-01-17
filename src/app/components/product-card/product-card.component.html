@@ -1,9 +1,11 @@
-<div *ngIf="product && product.image" class="w-full flex flex-col items-center">
-	<img [src]="'http://localhost:5000/' + product.image" [alt]="product.name" class="bg-cover h-[304px] rounded-[5px]">
-	<h5 class="text-[18px] font-semibold mt-4">{{product.name}}</h5>
-	<h6 class="text-sm">{{product.brand}}</h6>
-	<h4 class="text-[20px] font-semibold mt-2">{{product.price | currency}}</h4>
-	<div class="flex mt-4">
-		<app-button customClasses="hover:bg-black hover:text-white w-[304px]" text="Add to cart"></app-button>
-	</div>
-</div>
+@if (product && product.image) {
+  <div class="w-full flex flex-col items-center">
+    <img [src]="'http://localhost:5000/' + product.image" [alt]="product.name" class="bg-cover h-[304px] rounded-[5px]">
+    <h5 class="text-[18px] font-semibold mt-4">{{product.name}}</h5>
+    <h6 class="text-sm">{{product.brand}}</h6>
+    <h4 class="text-[20px] font-semibold mt-2">{{product.price | currency}}</h4>
+    <div class="flex mt-4">
+      <app-button customClasses="hover:bg-black hover:text-white w-[304px]" text="Add to cart"></app-button>
+    </div>
+  </div>
+}

@@ -1,96 +1,106 @@
 <div class="min-h-screen w-full flex justify-center items-center py-[64px] xl:py-0">
-	<div class="hidden h-screen xl:flex xl:flex-[4] 2xl:flex-[3]">
-		<img src="/assets/auth/register.jpg" alt="register-page" class="h-full w-full object-cover">
-	</div>
+  <div class="hidden h-screen xl:flex xl:flex-[4] 2xl:flex-[3]">
+    <img src="/assets/auth/register.jpg" alt="register-page" class="h-full w-full object-cover">
+  </div>
 
-	<div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12 min-h-full">
+  <div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12 min-h-full">
 
-		<div class="flex flex-col gap-[5px]">
-			<h1 class="auth-heading">Create New Account</h1>
-			<h3 class="auth-subtitle">Please enter details</h3>
-		</div>
+    <div class="flex flex-col gap-[5px]">
+      <h1 class="auth-heading">Create New Account</h1>
+      <h3 class="auth-subtitle">Please enter details</h3>
+    </div>
 
-		<form class="w-full flex flex-col mt-8" [formGroup]="registerForm" (ngSubmit)="register()">
-			<div class="w-full flex flex-col gap-4">
-				<div class="w-full flex flex-col gap-4">
+    <form class="w-full flex flex-col mt-8" [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="w-full flex flex-col gap-4">
+        <div class="w-full flex flex-col gap-4">
 
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
-							for="email" class="auth-label">Email Address</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
-							id="email" formControlName="email" class="auth-input" type="email" placeholder="Enter your email">
-						<p *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid"
-							class="text-red-400 text-sm">
-							{{ getErrorMessage(registerForm, 'email') }}
-						</p>
-					</div>
+          <div class="w-full flex flex-col gap-[5px]">
+            <label
+              [ngClass]="{'text-red-500': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
+            for="email" class="auth-label">Email Address</label>
+            <input autocomplete="off"
+              [ngClass]="{'auth-input-error': registerForm.controls['email'].invalid && registerForm.controls['email'].touched}"
+              id="email" formControlName="email" class="auth-input" type="email" placeholder="Enter your email">
+              @if (registerForm.controls['email'].touched && registerForm.controls['email'].invalid) {
+                <p
+                  class="text-red-400 text-sm">
+                  {{ getErrorMessage(registerForm, 'email') }}
+                </p>
+              }
+            </div>
 
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
-							for="username" class="auth-label">Username</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
-							id="username" formControlName="username" class="auth-input" type="text"
-							placeholder="Enter your username">
-						<p *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid"
-							class="text-red-400 text-sm">
-							{{ getErrorMessage(registerForm,'username') }}
-						</p>
-					</div>
+            <div class="w-full flex flex-col gap-[5px]">
+              <label
+                [ngClass]="{'text-red-500': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
+              for="username" class="auth-label">Username</label>
+              <input autocomplete="off"
+                [ngClass]="{'auth-input-error': registerForm.controls['username'].invalid && registerForm.controls['username'].touched}"
+                id="username" formControlName="username" class="auth-input" type="text"
+                placeholder="Enter your username">
+                @if (registerForm.controls['username'].touched && registerForm.controls['username'].invalid) {
+                  <p
+                    class="text-red-400 text-sm">
+                    {{ getErrorMessage(registerForm,'username') }}
+                  </p>
+                }
+              </div>
 
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
-							for="password" class="auth-label">Password</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
-							id="password" formControlName="password" class="auth-input" type="password"
-							placeholder="Enter your password">
-						<p *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid"
-							class="text-red-400 text-sm">
-							{{ getErrorMessage(registerForm,'password') }}
-						</p>
-					</div>
+              <div class="w-full flex flex-col gap-[5px]">
+                <label
+                  [ngClass]="{'text-red-500': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
+                for="password" class="auth-label">Password</label>
+                <input autocomplete="off"
+                  [ngClass]="{'auth-input-error': registerForm.controls['password'].invalid && registerForm.controls['password'].touched}"
+                  id="password" formControlName="password" class="auth-input" type="password"
+                  placeholder="Enter your password">
+                  @if (registerForm.controls['password'].touched && registerForm.controls['password'].invalid) {
+                    <p
+                      class="text-red-400 text-sm">
+                      {{ getErrorMessage(registerForm,'password') }}
+                    </p>
+                  }
+                </div>
 
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
-							for="confirmPassword" class="auth-label">Confirm Password</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
-							id="confirmPassword" formControlName="confirmPassword" class="auth-input" type="password"
-							placeholder="Enter your password again">
-						<p *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].invalid"
-							class="text-red-400 text-sm">
-							{{ getErrorMessage(registerForm,'confirmPassword') }}
-						</p>
-					</div>
+                <div class="w-full flex flex-col gap-[5px]">
+                  <label
+                    [ngClass]="{'text-red-500': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
+                  for="confirmPassword" class="auth-label">Confirm Password</label>
+                  <input autocomplete="off"
+                    [ngClass]="{'auth-input-error': registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched}"
+                    id="confirmPassword" formControlName="confirmPassword" class="auth-input" type="password"
+                    placeholder="Enter your password again">
+                    @if (registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].invalid) {
+                      <p
+                        class="text-red-400 text-sm">
+                        {{ getErrorMessage(registerForm,'confirmPassword') }}
+                      </p>
+                    }
+                  </div>
 
-					<div class="flex justify-between">
-						<div class="flex gap-[10px] items-center">
-							<input id="isAgree" type="checkbox" formControlName="isAgree">
-							<label for="isAgree" class="text-auth-black text-[16px] cursor-pointer select-none">
-								I agree to the
-								<span class="font-bold">Terms & Conditions</span>
-							</label>
-						</div>
-					</div>
+                  <div class="flex justify-between">
+                    <div class="flex gap-[10px] items-center">
+                      <input id="isAgree" type="checkbox" formControlName="isAgree">
+                      <label for="isAgree" class="text-auth-black text-[16px] cursor-pointer select-none">
+                        I agree to the
+                        <span class="font-bold">Terms & Conditions</span>
+                      </label>
+                    </div>
+                  </div>
 
-					<p class="text-red-500 text-sm font-semibold" *ngIf="error">*{{error}}</p>
+                  @if (error) {
+                    <p class="text-red-500 text-sm font-semibold">*{{error}}</p>
+                  }
 
-					<div class="flex justify-between">
-						<p routerLink="/auth/login" class="text-auth-black text-sm cursor-pointer active:scale-90 select-none"
-							appScale>Have an
-							account?</p>
-					</div>
-				</div>
-			</div>
+                  <div class="flex justify-between">
+                    <p routerLink="/auth/login" class="text-auth-black text-sm cursor-pointer active:scale-90 select-none"
+                      appScale>Have an
+                    account?</p>
+                  </div>
+                </div>
+              </div>
 
-			<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
-				text="Signup"></app-button>
-		</form>
-	</div>
-</div>
+              <app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
+              text="Signup"></app-button>
+            </form>
+          </div>
+        </div>

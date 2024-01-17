@@ -1,5 +1,7 @@
 <div class="flex gap-3">
-	<a *ngFor="let social of socials" target="_blank" [href]="social.link" class="w-6 h-6" appScale>
-		<img [src]="social.icon" [alt]="social.name">
-	</a>
+  @for (social of socials; track social) {
+    <a target="_blank" [href]="social.link" class="w-6 h-6" appScale>
+      <img [src]="social.icon" [alt]="social.name">
+    </a>
+  }
 </div>

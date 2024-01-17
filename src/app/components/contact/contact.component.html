@@ -1,43 +1,45 @@
 <section>
-	<div class="appContainer">
-		<div class="xl:px-16 py-12 xl:py-28 flex flex-col lg:flex-row lg:justify-between gap-12">
+  <div class="appContainer">
+    <div class="xl:px-16 py-12 xl:py-28 flex flex-col lg:flex-row lg:justify-between gap-12">
 
-			<div class="flex flex-col gap-6 xl:gap-10">
-				<div class="flex flex-col gap-4">
-					<h3 class="subtitle">Tagline</h3>
-					<h2 class="heading-2">Contact Us</h2>
-					<p class="text xl:mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div>
+      <div class="flex flex-col gap-6 xl:gap-10">
+        <div class="flex flex-col gap-4">
+          <h3 class="subtitle">Tagline</h3>
+          <h2 class="heading-2">Contact Us</h2>
+          <p class="text xl:mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
 
-				<ul class="flex flex-col gap-4">
-					<li *ngFor="let platform of platforms" class="flex gap-1">
-						<img [src]="platform.img" [alt]="platform.title">
-						<p>{{platform.title}}</p>
-					</li>
-				</ul>
-			</div>
+        <ul class="flex flex-col gap-4">
+          @for (platform of platforms; track platform) {
+            <li class="flex gap-1">
+              <img [src]="platform.img" [alt]="platform.title">
+              <p>{{platform.title}}</p>
+            </li>
+          }
+        </ul>
+      </div>
 
-			<form class="flex flex-col gap-6 flex-1 lg:max-w-[616px]">
-				<div class="w-full flex flex-col gap-2">
-					<label>Name</label>
-					<input class="border border-black h-12 p-3 rounded-[5px]" type="text">
-				</div>
-				<div class="w-full flex flex-col gap-2">
-					<label>Email</label>
-					<input class="border border-black h-12 p-3 rounded-[5px]" type="text">
-				</div>
-				<div class="w-full flex flex-col gap-2">
-					<label>Message</label>
-					<textarea placeholder="Type your message..."
-						class="border border-black h-12 p-3 rounded-[5px] min-h-[180px] max-h-[420px]"></textarea>
-				</div>
-				<div class="hidden lg:flex w-full gap-3">
-					<input type="checkbox" class="w-[18px] h-[18px] border-[2px] border-red">
-					<label class="text-sm font-medium">I accept the Terms</label>
-				</div>
-				<app-button customClasses="bg-black text-white hover:bg-white hover:text-black" text="Submit"></app-button>
-			</form>
+      <form class="flex flex-col gap-6 flex-1 lg:max-w-[616px]">
+        <div class="w-full flex flex-col gap-2">
+          <label>Name</label>
+          <input class="border border-black h-12 p-3 rounded-[5px]" type="text">
+        </div>
+        <div class="w-full flex flex-col gap-2">
+          <label>Email</label>
+          <input class="border border-black h-12 p-3 rounded-[5px]" type="text">
+        </div>
+        <div class="w-full flex flex-col gap-2">
+          <label>Message</label>
+          <textarea placeholder="Type your message..."
+          class="border border-black h-12 p-3 rounded-[5px] min-h-[180px] max-h-[420px]"></textarea>
+        </div>
+        <div class="hidden lg:flex w-full gap-3">
+          <input type="checkbox" class="w-[18px] h-[18px] border-[2px] border-red">
+          <label class="text-sm font-medium">I accept the Terms</label>
+        </div>
+        <app-button customClasses="bg-black text-white hover:bg-white hover:text-black" text="Submit"></app-button>
+      </form>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </section>

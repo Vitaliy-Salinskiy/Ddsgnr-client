@@ -1,16 +1,18 @@
 <section>
-	<div class="appContainer">
-		<div class="flex flex-col lg:flex-row lg:justify-between gap-8 pt-4 pb-10 lg:pt-8">
+  <div class="appContainer">
+    <div class="flex flex-col lg:flex-row lg:justify-between gap-8 pt-4 pb-10 lg:pt-8">
 
-			<div class="flex flex-col lg:flex-row gap-6">
-				<h4>2023 Relume. All right reserved.</h4>
-				<ul class="flex gap-6">
-					<li *ngFor="let right of copyright" class="underline cursor-pointer" appScale>{{right}}</li>
-				</ul>
-			</div>
+      <div class="flex flex-col lg:flex-row gap-6">
+        <h4>2023 Relume. All right reserved.</h4>
+        <ul class="flex gap-6">
+          @for (right of copyright; track right) {
+            <li class="underline cursor-pointer" appScale>{{right}}</li>
+          }
+        </ul>
+      </div>
 
-			<social-list></social-list>
+      <social-list></social-list>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </section>

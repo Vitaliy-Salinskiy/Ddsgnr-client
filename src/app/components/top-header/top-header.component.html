@@ -1,52 +1,54 @@
 <section class="hidden lg:flex border-b-[2px] border-black">
-	<div class="appContainer">
-		<div class="flex justify-between py-3">
+  <div class="appContainer">
+    <div class="flex justify-between py-3">
 
-			<div class="flex items-center text-sm p-[4.5px]">
-				<p>Phone Number: <a href="tel:956742455678">956 742 455 678</a></p>
-				<div class="w-[1px] h-[30px] mx-4 bg-black"></div>
-				<p>Email: <a href="mailto:info@ddsgnr.com">info@ddsgnr.com</a></p>
-			</div>
+      <div class="flex items-center text-sm p-[4.5px]">
+        <p>Phone Number: <a href="tel:956742455678">956 742 455 678</a></p>
+        <div class="w-[1px] h-[30px] mx-4 bg-black"></div>
+        <p>Email: <a href="mailto:info@ddsgnr.com">info&#64;ddsgnr.com</a></p>
+      </div>
 
-			<div class="flex items-center gap-x-12">
-				<social-list></social-list>
+      <div class="flex items-center gap-x-12">
+        <social-list></social-list>
 
-				<div class="flex items-center gap-4">
-					<div class="flex gap-2">
-						<img src="/assets/header/global.svg" alt="global">
-						<div class="flex gap-2 cursor-pointer">
-							<p>English</p>
-							<img src="/assets/header/arrow-down.svg" alt="arrow-down">
-						</div>
-					</div>
+        <div class="flex items-center gap-4">
+          <div class="flex gap-2">
+            <img src="/assets/header/global.svg" alt="global">
+            <div class="flex gap-2 cursor-pointer">
+              <p>English</p>
+              <img src="/assets/header/arrow-down.svg" alt="arrow-down">
+            </div>
+          </div>
 
-					<div *ngIf="userProfile; else unauthorized" class="flex items-center gap-2 cursor-pointer">
-						<div class="flex items-center gap-2">
-							<img class="h-7 w-7 object-cover rounded-full" *ngIf="userProfile?.image; else unknown"
-								[src]="'http://localhost:5000/' + userProfile.image" alt="avatar">
-							<p class="font-semibold">{{userProfile.username}}</p>
-						</div>
-						<div class="h-[20px] w-[1px] bg-black"></div>
-						<a class="text-sm" routerLink="/auth/login">Sign Out</a>
-					</div>
+          @if (userProfile) {
+            <div class="flex items-center gap-2 cursor-pointer">
+              <div class="flex items-center gap-2">
+                @if (userProfile?.image) {
+                  <img class="h-7 w-7 object-cover rounded-full"
+                    [src]="'http://localhost:5000/' + userProfile.image" alt="avatar">
+                  } @else {
+                    <div class="bg-black text-white flex justify-center items-center rounded-full h-7 w-7">
+                      {{userProfile?.username.slice(0, 1).toUpperCase()}}
+                    </div>
+                  }
+                  <p class="font-semibold">{{userProfile.username}}</p>
+                </div>
+                <div class="h-[20px] w-[1px] bg-black"></div>
+                <a class="text-sm" routerLink="/auth/login">Sign Out</a>
+              </div>
+            } @else {
+              <div class="cursor-pointer">
+                <a routerLink="/auth/login" class="flex gap-[10px]">
+                  <img src="/assets/header/user.svg" alt="global">
+                  <p>Sign In</p>
+                </a>
+              </div>
+            }
 
-					<ng-template #unknown>
-						<div class="bg-black text-white flex justify-center items-center rounded-full h-7 w-7">
-							{{userProfile?.username.slice(0, 1).toUpperCase()}}
-						</div>
-					</ng-template>
 
-					<ng-template #unauthorized>
-						<div class="cursor-pointer">
-							<a routerLink="/auth/login" class="flex gap-[10px]">
-								<img src="/assets/header/user.svg" alt="global">
-								<p>Sign In</p>
-							</a>
-						</div>
-					</ng-template>
-				</div>
-			</div>
+          </div>
+        </div>
 
-		</div>
-	</div>
-</section>
+      </div>
+    </div>
+  </section>

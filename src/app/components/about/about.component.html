@@ -1,44 +1,46 @@
 <section class="relative">
-	<div class="appContainer ">
-		<div
-			class="flex flex-col sm:flex-row lg:justify-between lg:items-center lg:gap-10 xl:px-16 py-12 py-28 pb-[720px] lg:pb-28">
+  <div class="appContainer ">
+    <div
+      class="flex flex-col sm:flex-row lg:justify-between lg:items-center lg:gap-10 xl:px-16 py-12 py-28 pb-[720px] lg:pb-28">
 
-			<div class="flex flex-col gap-8 flex-[2] lg:max-w-[525px] xl:max-w-[616px]">
+      <div class="flex flex-col gap-8 flex-[2] lg:max-w-[525px] xl:max-w-[616px]">
 
-				<div class="flex flex-col gap-6">
-					<div class="flex flex-col gap-4">
-						<h3 class="subtitle">About Us</h3>
-						<h2 class="heading-2">About The Shop</h2>
-					</div>
-					<p class="text">Whether you're moving into a new home, redecorating your current space, or just looking
-						for
-						a few accents to spruce up your style, we've got you covered. Shop our products online, and enjoy fast
-						and free shipping, easy returns, and friendly customer service.</p>
-				</div>
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-4">
+            <h3 class="subtitle">About Us</h3>
+            <h2 class="heading-2">About The Shop</h2>
+          </div>
+          <p class="text">Whether you're moving into a new home, redecorating your current space, or just looking
+            for
+            a few accents to spruce up your style, we've got you covered. Shop our products online, and enjoy fast
+          and free shipping, easy returns, and friendly customer service.</p>
+        </div>
 
-				<ul class="flex flex-wrap gap-y-10">
-					<li *ngFor="let item of about"
-						class="flex flex-col justify-center items-center lg:items-start lg:justify-start  gap-x-2 w-[calc(100%/2-24px)]">
-						<h4 class="text-center lg:text-left text-[32px] lg:text-[48px] leading-[130%] font-bold">
-							{{item.value}}</h4>
-						<p class="text-center lg:text-left">{{item.title}}</p>
-					</li>
-				</ul>
+        <ul class="flex flex-wrap gap-y-10">
+          @for (item of about; track item) {
+            <li
+              class="flex flex-col justify-center items-center lg:items-start lg:justify-start  gap-x-2 w-[calc(100%/2-24px)]">
+              <h4 class="text-center lg:text-left text-[32px] lg:text-[48px] leading-[130%] font-bold">
+              {{item.value}}</h4>
+              <p class="text-center lg:text-left">{{item.title}}</p>
+            </li>
+          }
+        </ul>
 
-			</div>
+      </div>
 
-			<!-- mobile -->
+      <!-- mobile -->
 
-			<img src="/assets/about/about-bg.jpg" alt="about-bg"
-				class="absolute bottom-12 right-0 left-0 w-full h-[616px] bg-cover lg:hidden">
+      <img src="/assets/about/about-bg.jpg" alt="about-bg"
+        class="absolute bottom-12 right-0 left-0 w-full h-[616px] bg-cover lg:hidden">
 
-			<!-- /mobile -->
+        <!-- /mobile -->
 
-			<!-- desktop -->
-			<img src="/assets/about/about-bg.jpg" alt="about-bg"
-				class="w-[480px] h-[560px] 3xl:w-[616px] 3xl:h-[640px] bg-cover hidden lg:block ">
-			<!-- /desktop -->
+        <!-- desktop -->
+        <img src="/assets/about/about-bg.jpg" alt="about-bg"
+          class="w-[480px] h-[560px] 3xl:w-[616px] 3xl:h-[640px] bg-cover hidden lg:block ">
+          <!-- /desktop -->
 
-		</div>
-	</div>
-</section>
+        </div>
+      </div>
+    </section>

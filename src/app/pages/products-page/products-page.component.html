@@ -1,1 +1,1 @@
-<products *ngFor="let page of pages" [title]="page.title" [subtitle]="page.subtitle"></products>
+@for (page of pages; track page) {<products [title]="page.title" [subtitle]="page.subtitle"></products>}

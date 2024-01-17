@@ -1,68 +1,74 @@
 <div class="h-screen w-full flex justify-center items-center py-[64px] xl:py-0">
-	<div class="hidden h-screen xl:flex xl:flex-[4] 2xl:flex-[3]">
-		<img src="/assets/auth/login.jpg" alt="login-page" class="h-full w-full bg-cover">
-	</div>
+  <div class="hidden h-screen xl:flex xl:flex-[4] 2xl:flex-[3]">
+    <img src="/assets/auth/login.jpg" alt="login-page" class="h-full w-full bg-cover">
+  </div>
 
-	<div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12">
+  <div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12">
 
-		<div class="flex flex-col gap-[5px]">
-			<h1 class="auth-heading">Welcome 👋</h1>
-			<h3 class="auth-subtitle">Please login here</h3>
-		</div>
+    <div class="flex flex-col gap-[5px]">
+      <h1 class="auth-heading">Welcome 👋</h1>
+      <h3 class="auth-subtitle">Please login here</h3>
+    </div>
 
-		<form class="w-full flex flex-col mt-8" [formGroup]="loginForm" (ngSubmit)="login()">
-			<div class="w-full flex flex-col gap-4">
-				<div class="w-full flex flex-col gap-4">
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
-							class="auth-label" for="username">Username</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
-							id="username" formControlName="username" class="auth-input" type="text"
-							placeholder="Enter your username">
-						<p class="text-sm text-red-500"
-							*ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid">
-							{{ getErrorMessage(loginForm, 'username') }}
-						</p>
-					</div>
-					<div class="w-full flex flex-col gap-[5px]">
-						<label
-							[ngClass]="{'text-red-500': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
-							class="auth-label" for="password">Password</label>
-						<input autocomplete="off"
-							[ngClass]="{'auth-input-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
-							formControlName="password" class="auth-input" id="password" type="text"
-							placeholder="Enter your password">
-						<p class="text-sm text-red-500"
-							*ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
-							{{ getErrorMessage(loginForm, 'password') }}
-						</p>
-					</div>
+    <form class="w-full flex flex-col mt-8" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="w-full flex flex-col gap-4">
+        <div class="w-full flex flex-col gap-4">
+          <div class="w-full flex flex-col gap-[5px]">
+            <label
+              [ngClass]="{'text-red-500': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
+            class="auth-label" for="username">Username</label>
+            <input autocomplete="off"
+              [ngClass]="{'auth-input-error': loginForm.controls['username'].invalid && loginForm.controls['username'].touched}"
+              id="username" formControlName="username" class="auth-input" type="text"
+              placeholder="Enter your username">
+              @if (loginForm.controls['username'].touched && loginForm.controls['username'].invalid) {
+                <p class="text-sm text-red-500"
+                  >
+                  {{ getErrorMessage(loginForm, 'username') }}
+                </p>
+              }
+            </div>
+            <div class="w-full flex flex-col gap-[5px]">
+              <label
+                [ngClass]="{'text-red-500': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
+              class="auth-label" for="password">Password</label>
+              <input autocomplete="off"
+                [ngClass]="{'auth-input-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}"
+                formControlName="password" class="auth-input" id="password" type="text"
+                placeholder="Enter your password">
+                @if (loginForm.controls['password'].touched && loginForm.controls['password'].invalid) {
+                  <p class="text-sm text-red-500"
+                    >
+                    {{ getErrorMessage(loginForm, 'password') }}
+                  </p>
+                }
+              </div>
 
-					<div class="flex justify-between">
-						<div class="flex gap-[10px] items-center cursor-pointer">
-							<input type="checkbox" id="checkbox">
-							<label for="checkbox" class="text-auth-black text-[16px]">Remember Me</label>
-						</div>
-						<p routerLink="/auth/forgot-password"
-							class=" text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Forgot
-							Password?</p>
-					</div>
+              <div class="flex justify-between">
+                <div class="flex gap-[10px] items-center cursor-pointer">
+                  <input type="checkbox" id="checkbox">
+                  <label for="checkbox" class="text-auth-black text-[16px]">Remember Me</label>
+                </div>
+                <p routerLink="/auth/forgot-password"
+                  class=" text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Forgot
+                Password?</p>
+              </div>
 
-					<div class="flex justify-between">
-						<p routerLink="/auth/register"
-							class="text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Don't have
-							account?</p>
-					</div>
+              <div class="flex justify-between">
+                <p routerLink="/auth/register"
+                  class="text-auth-black text-sm cursor-pointer active:scale-90 select-none" appScale>Don't have
+                account?</p>
+              </div>
 
-					<p class="text-red-500 text-sm font-semibold" *ngIf="error">*{{error}}</p>
+              @if (error) {
+                <p class="text-red-500 text-sm font-semibold">*{{error}}</p>
+              }
 
-				</div>
-			</div>
+            </div>
+          </div>
 
-			<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
-				text="Login"></app-button>
-		</form>
-	</div>
-</div>
+          <app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
+          text="Login"></app-button>
+        </form>
+      </div>
+    </div>
