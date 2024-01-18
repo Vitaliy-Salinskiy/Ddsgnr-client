@@ -38,6 +38,7 @@ import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppDropzoneComponent } from './components/app-dropzone/app-dropzone.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
 	declarations: [
@@ -70,7 +71,8 @@ import { AppDropzoneComponent } from './components/app-dropzone/app-dropzone.com
 		ForgotPasswordPageComponent,
 		OtpPageComponent,
 		ProductFormComponent,
-		AppDropzoneComponent
+		AppDropzoneComponent,
+		CartItemComponent
 	],
 	imports: [
 		BrowserModule,

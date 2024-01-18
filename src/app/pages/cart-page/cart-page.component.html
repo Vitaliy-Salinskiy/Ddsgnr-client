@@ -1,1 +1,162 @@
-<p>cart-page works!</p>
+<section>
+	<div class="appContainer">
+		<div class="flex flex-col xl:flex-row gap-[45px] 2xl:gap-[135px] xl:px-16 py-[30px] xl:pt-[106px]">
+
+			<div class="flex flex-col flex-[3]">
+				<div>
+					<button class="group flex gap-[6px] cursor-pointer items-center" routerLink="/home">
+						<img src="/assets/cart/back-arrow.svg" alt="checkout"
+							class="transition-transform group-hover:rotate-[180deg]">
+						<span class="text-[13px] xl:text-[20px] text-cart-gray group-hover:font-medium">Checkout</span>
+					</button>
+				</div>
+
+				<div class="w-full flex flex-col justify-start items-center sm:items-start mt-[25px]">
+					<div class="hidden flex-col items-start gap-[8px] mt-[25px] sm:flex">
+						<h3 class="text-[14px] font-medium text-cart-gray leading-[150%]">Our Products</h3>
+						<h1 class="text-cart-black text-[40px] font-bold leading-[120%]">{{'133.23' | currency}}</h1>
+					</div>
+
+					<div class="flex flex-col gap-[25px] sm:w-full sm:mt-[35px]">
+						<app-cart-item *ngFor="let item of [1,2,3]"></app-cart-item>
+					</div>
+
+					<div class="flex flex-col items-center gap-[9px] mt-[25px] sm:hidden">
+						<h3 class="text-[16px] font-medium text-cart-gray leading-[150%]">Our Products</h3>
+						<h1 class="text-cart-black text-[32px] font-bold leading-[130%]">{{'133.23' | currency}}</h1>
+					</div>
+
+					<div class="hidden sm:flex mt-[26px] w-full justify-end">
+						<div class="flex flex-col w-[285px]">
+							<div class="flex justify-between py-3">
+								<p class="text-[15px] font-medium text-cart-black">Subtotal</p>
+								<span class="text-[15px] font-medium text-cart-black">{{'129.00' | currency}}</span>
+							</div>
+							<div class="flex justify-between py-3">
+								<p class="text-[15px] font-semibold text-cart-gray">Sales tax (6.5%)</p>
+								<span class="text-[15px] font-medium text-cart-gray">{{'4.23' | currency}}</span>
+							</div>
+							<div class="flex justify-between py-3">
+								<p class="text-[15px] font-medium text-cart-black">Total due</p>
+								<span class="text-[15px] font-medium text-cart-black">{{'133.23' | currency}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-[36px] flex-[2]">
+				<button class="flex justify-center items-center bg-black rounded py-3 px-12">
+					<img src="/assets/cart/apple-pay.svg" class="h-6 w-[58px] object-cover" alt="apple-pay">
+				</button>
+
+				<div class="relative">
+					<hr class="bg-[#3C42571F] w-full h-[1px]" />
+					<span
+						class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white px-2 text-cart-gray text-[16px]">Or
+						pay with card</span>
+				</div>
+
+				<form class="flex flex-col gap-8" [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+					<div class="flex flex-col gap-2 w-full">
+						<label
+							[ngClass]="{'text-red-500': cartForm.controls['email'].touched && cartForm.controls['email'].invalid}"
+							for="email" class="text-sm text-cart-gray font-medium">Email</label>
+						<input
+							[ngClass]="{'cart-input-error': cartForm.controls['email'].touched && cartForm.controls['email'].invalid}"
+							formControlName="email" id="email" type="email" class="cart-input">
+						<p class="text-sm text-red-500"
+							*ngIf="cartForm.controls['email'].touched && cartForm.controls['email'].invalid">
+							{{ getErrorMessage(cartForm, 'email') }}
+						</p>
+					</div>
+
+					<div class="flex flex-col gap-2 w-full">
+						<label
+							[ngClass]="{'text-red-500': (cartForm.controls['cardNumber'].touched && cartForm.controls['cardNumber'].invalid) || (cartForm.controls['mv/yy'].touched && cartForm.controls['mv/yy'].invalid) || (cartForm.controls['cvc'].touched && cartForm.controls['cvc'].invalid) }"
+							class="text-sm text-cart-gray font-medium">Country or region</label>
+						<div>
+							<div class="relative">
+								<input
+									[ngClass]="{'text-red-500 border-red-500 placeholder:text-red-500': (cartForm.controls['cardNumber'].touched && cartForm.controls['cardNumber'].invalid) || (cartForm.controls['mv/yy'].touched && cartForm.controls['mv/yy'].invalid) || (cartForm.controls['cvc'].touched && cartForm.controls['cvc'].invalid) }"
+									formControlName="cardNumber" type="number" placeholder="1234 1234 1234 1234"
+									class="w-full text-[15px] pr-36 h-[40px] text-cart-black border-[2px] border-cart-input rounded-t-[5px] px-4 py-[9px] placeholder:text-cart-gray placeholder:font-medium">
+								<div class="flex gap-2 absolute right-3 top-1/2 -translate-y-1/2">
+									<div *ngFor="let method of paymentMethods">
+										<img [src]="method.img" [alt]="method.alt">
+									</div>
+								</div>
+							</div>
+							<div class="flex">
+								<input
+									[ngClass]="{'text-red-500 border-red-500 placeholder:text-red-500': (cartForm.controls['cardNumber'].touched && cartForm.controls['cardNumber'].invalid) || (cartForm.controls['mv/yy'].touched && cartForm.controls['mv/yy'].invalid) || (cartForm.controls['cvc'].touched && cartForm.controls['cvc'].invalid) }"
+									formControlName="mv/yy" type="text" placeholder="MM / YY"
+									class="w-1/2 text-[15px] h-[40px] text-cart-black border-[2px] border-t-0 border-cart-input rounded-bl-[5px] px-4 py-[9px] placeholder:text-cart-gray placeholder:font-medium">
+								<div class="w-1/2 relative">
+									<input
+										[ngClass]="{'text-red-500 border-red-500 placeholder:text-red-500': (cartForm.controls['cardNumber'].touched && cartForm.controls['cardNumber'].invalid) || (cartForm.controls['mv/yy'].touched && cartForm.controls['mv/yy'].invalid) || (cartForm.controls['cvc'].touched && cartForm.controls['cvc'].invalid) }"
+										formControlName="cvc" type="number" placeholder="CVC"
+										class="w-full text-[15px] h-[40px] text-cart-black border-[2px] border-t-0 border-l-0 border-cart-input rounded-br-[5px]  px-4 py-[9px] placeholder:text-cart-gray placeholder:font-medium">
+									<img class="absolute right-3 top-1/2 -translate-y-1/2" src="/assets/cart/card.svg"
+										alt="card">
+								</div>
+							</div>
+						</div>
+						<div class="text-sm text-red-500 flex flex-col"
+							*ngIf="(cartForm.controls['cardNumber'].touched && cartForm.controls['cardNumber'].invalid) || (cartForm.controls['mv/yy'].touched && cartForm.controls['mv/yy'].invalid) || (cartForm.controls['cvc'].touched && cartForm.controls['cvc'].invalid)">
+							<p>
+								{{ getErrorMessage(cartForm, 'cardNumber') }}
+							</p>
+							<p>
+								{{ getErrorMessage(cartForm, 'mv/yy') }}
+							</p>
+							<p>
+								{{ getErrorMessage(cartForm, 'cvc') }}
+							</p>
+						</div>
+					</div>
+
+					<div class="flex flex-col gap-2 w-full">
+						<label
+							[ngClass]="{'text-red-500': cartForm.controls['name'].touched && cartForm.controls['name'].invalid}"
+							for="name" class="text-sm text-cart-gray font-medium">Name on card</label>
+						<input
+							[ngClass]="{'text-red-500 border-red-500 placeholder:text-red-500': cartForm.controls['name'].touched && cartForm.controls['name'].invalid}"
+							formControlName="name" id="name" type="text" class="cart-input">
+						<p class="text-sm text-red-500"
+							*ngIf="cartForm.controls['name'].touched && cartForm.controls['name'].invalid">
+							{{ getErrorMessage(cartForm, 'name') }}
+						</p>
+					</div>
+
+					<div class="flex flex-col gap-2 w-full">
+						<label
+							[ngClass]="{'text-red-500': (cartForm.controls['country'].touched && cartForm.controls['country'].invalid) || (cartForm.controls['zip'].touched && cartForm.controls['zip'].invalid)}"
+							class="text-sm text-cart-gray font-medium">Country or region</label>
+						<div class="flex flex-col">
+							<ng-select
+								[ngClass]="{'custom-cart error':  (cartForm.controls['country'].touched && cartForm.controls['country'].invalid) || (cartForm.controls['zip'].touched && cartForm.controls['zip'].invalid)}"
+								formControlName="country" (change)="onCountryChange($event)" [items]="countries"
+								bindLabel="name" placeholder="Select a country"></ng-select>
+							<input
+								[ngClass]="{'text-red-500 border-red-500 placeholder:text-red-500':  (cartForm.controls['country'].touched && cartForm.controls['country'].invalid) || (cartForm.controls['zip'].touched && cartForm.controls['zip'].invalid)}"
+								formControlName="zip" type="text" placeholder="ZIP"
+								class="w-full text-[15px] h-[40px] text-cart-black border-[2px] border-t-0 border-cart-input rounded-b-[5px] px-4 py-[9px] placeholder:text-cart-gray placeholder:font-medium">
+						</div>
+						<p class="text-sm text-red-500"
+							*ngIf="(cartForm.controls['country'].touched && cartForm.controls['country'].invalid) || (cartForm.controls['zip'].touched && cartForm.controls['zip'].invalid)">
+							{{ getErrorMessage(cartForm, 'zip') }}
+						</p>
+					</div>
+
+					<app-button
+						customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[10px]"
+						text="Pay $133.23"></app-button>
+
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+</section>

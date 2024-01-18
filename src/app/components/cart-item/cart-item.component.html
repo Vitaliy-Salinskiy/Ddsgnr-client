@@ -1,0 +1,37 @@
+<!-- mobile -->
+
+<div class="relative h-48 w-48 sm:hidden">
+	<img src="/assets/cart/Image.png" class="bg-cover w-full h-full" alt="cart-item">
+	<div
+		class="absolute -bottom-[2px] left-1/2 -translate-x-1/2 shadow-cart flex items-center gap-[9px] w-[90px] bg-white rounded-[114px] pl-[18px] pr-[9px]">
+		<p class="text-[13px] font-medium">2 items</p>
+		<img src="/assets/cart/next-arrow.svg" alt="next-arrow">
+	</div>
+</div>
+
+<!-- /mobile -->
+
+<!-- desktop -->
+
+<div class="justify-between hidden sm:flex w-full">
+	<div class="flex gap-[15px]">
+		<div class="h-full w-[55px]">
+			<img src="/assets/cart/Image.png" alt="cart-item" class="h-full w-full object-cover">
+		</div>
+		<div class="flex flex-col gap-[2px]">
+			<h4>Denim</h4>
+			<div class="flex gap-2">
+				<p class="text-cart-gray text-[13px] font-medium">Qty</p>
+				<p class="text-cart-black text-[13px] font-medium">1</p>
+				<img src="/assets/cart/arrow-down.svg" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="flex flex-col justify-between text-right">
+		<h3>{{'64.00' | currency}}</h3>
+		<p class="text-[15px] font-medium text-cart-gray">{{'32.00' | currency}} each</p>
+	</div>
+</div>
+
+<!-- /desktop -->

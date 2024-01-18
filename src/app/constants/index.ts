@@ -159,3 +159,22 @@ export const DROPZONE_STYLE = {
 	'overflow-y': 'scrollbar',
 	'scrollbar-width': 'none'
 };
+
+export const paymentMethods = [
+	{
+		img: '/assets/cart/visa.svg',
+		alt: 'Visa'
+	},
+	{
+		img: '/assets/cart/mastercard.svg',
+		alt: 'Mastercard'
+	},
+	{
+		img: '/assets/cart/american-express.svg',
+		alt: 'American Express'
+	},
+	{
+		img: '/assets/cart/discover.svg',
+		alt: 'Discover'
+	}
+]

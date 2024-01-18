@@ -42,7 +42,7 @@ const routes: Routes = [
 			{ path: "products/:id", component: ProductDetailsPageComponent },
 			{ path: "services", component: ServicePageComponent },
 			{ path: "contact", component: ContactPageComponent, canActivate: [canActivate] },
-			{ path: "cart/:id", component: CartPageComponent, canActivate: [canActivate] },
+			{ path: "cart/:id", component: CartPageComponent, canActivate: [canActivate], canDeactivate: [canDeactivate] },
 		],
 	},
 	{ path: "**", redirectTo: "home", pathMatch: "full" }

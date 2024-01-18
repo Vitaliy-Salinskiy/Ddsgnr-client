@@ -152,6 +152,17 @@
 		@apply border-[2px] border-black h-12 p-3 rounded-[5px] min-h-[180px] max-h-[250px] placeholder:text-black
 	}
 
+	.cart-label {
+		@apply text-[14px] text-cart-gray font-semibold;
+	}
+
+	.cart-input {
+		@apply text-[15px] font-medium h-[40px] text-cart-black border-[2px] border-cart-input rounded-[5px] px-4 py-[6px] placeholder:text-cart-input;
+	}
+
+	.cart-input-error {
+		@apply text-red-500 border-red-500 outline-red-500 placeholder:text-red-500;
+	}
 }
 
 input[type="checkbox"] {
