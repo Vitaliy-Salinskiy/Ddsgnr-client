@@ -42,3 +42,15 @@ export interface IToken {
 export interface IDeactivateComponent {
 	canExit: () => boolean | Promise<boolean> | Observable<boolean>;
 }
+
+
+export interface IColorOption {
+	value: string;
+	viewValue: string;
+	color: string;
+}
+
+export interface ISizeOption {
+	value: string;
+	viewValue: string;
+}

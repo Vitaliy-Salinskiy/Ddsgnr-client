@@ -146,8 +146,7 @@ export const contactUs = [
 ]
 
 export const DROPZONE_STYLE = {
-	'min-height.px': 400,
-	'height': 'auto',
+	'min-height.px': 580,
 	'border': '2px dashed #000',
 	'position': 'relative',
 	'display': 'flex',
@@ -157,6 +156,6 @@ export const DROPZONE_STYLE = {
 	'align-items': 'flex-start',
 	'gap.px': 10,
 	'overflow-x': 'hidden',
-	'overflow-y': 'auto',
+	'overflow-y': 'scrollbar',
 	'scrollbar-width': 'none'
 };

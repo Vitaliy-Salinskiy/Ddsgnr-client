@@ -5,33 +5,113 @@
 			<div class="flex flex-col">
 				<h2 class="heading-2">Create New Product</h2>
 				<p class="text max-w-[460px]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam veniam ipsa
-					consectetur sequi
-					optio aliquam.</p>
+					consectetur sequi optio aliquam.</p>
 			</div>
 
-			<div class="flex flex-col xl:flex-row">
+			<div class="flex flex-col gap-10 xl:flex-row xl:justify-between">
 
-				<div class="flex-col gap-2 xl:flex-[2]">
-					<button *ngIf="imageUrls.length" class="text-lg font-semibold cursor-pointer"
-						(click)="clearFiles()">Clear
-						images</button>
-					<ngx-dropzone [ngClass]="{'dragging': isDragging}" (dragenter)="onDragEnter($event)"
-						(dragleave)="onDragLeave($event)" tabindex="0" (change)="onSelectFile($event)"
-						[ngStyle]="dropzoneStyle">
-						<div class="absolute inset-0 z-1" [ngClass]="{'bg-slate-200': isDragging}"></div>
-						<div *ngIf="!imageUrls.length"
-							class="z-[2] absolute w-[200px] xl:w-auto text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-black">
-							+ Add your .png .jpeg .jpg .webp images
-						</div>
-						<img class="w-full h-auto object-cover" *ngFor="let imageUrl of imageUrls" [src]="imageUrl">
-					</ngx-dropzone>
-					<button *ngIf="filesError" class="text-lg font-semibold text-red-500">{{filesError}}</button>
-
+				<div class="flex flex-col gap-2 xl:flex-[2]">
+					<app-dropzone (filesChanged)="onFilesChanged($event)">
+					</app-dropzone>
+					<p class="text-md text-red-500" *ngIf="imagesError">
+						{{ imagesError}}
+					</p>
 				</div>
 
-				<form class="xl:flex-[2]">
+				<div class="xl:flex-[2] xl:flex xl:justify-end">
+					<form class="w-full flex flex-col gap-4" [formGroup]="productForm" (ngSubmit)="onSubmit()">
 
-				</form>
+						<div class="flex flex-col gap-3">
+
+							<div class="flex flex-col gap-[5px]">
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['name'].touched && productForm.controls['name'].invalid}"
+									class="product-label" for="name">Name of the Product</label>
+								<input
+									[ngClass]="{'product-input-error': productForm.controls['name'].touched && productForm.controls['name'].invalid}"
+									class="product-input" id="name" type="text" formControlName="name"
+									placeholder="Enter name of the product">
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['name'].touched && productForm.controls['name'].invalid">
+									{{ getErrorMessage(productForm, 'name') }}
+								</p>
+							</div>
+
+							<div class="flex flex-col gap-[5px]">
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['price'].touched && productForm.controls['price'].invalid}"
+									class="product-label" for="name">Price of the Product</label>
+								<input
+									[ngClass]="{'product-input-error': productForm.controls['price'].touched && productForm.controls['price'].invalid}"
+									class="product-input" id="name" type="number" formControlName="price"
+									placeholder="Enter price of the product">
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['price'].touched && productForm.controls['price'].invalid">
+									{{ getErrorMessage(productForm, 'price') }}
+								</p>
+							</div>
+
+							<div>
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['sizes'].touched && productForm.controls['sizes'].invalid}"
+									class="product-label">Select sizes</label>
+								<ng-select
+									[ngClass]="{'error': productForm.controls['sizes'].touched && productForm.controls['sizes'].invalid}"
+									class="custom" formControlName="sizes" [items]="sizeOptions" bindLabel="viewValue"
+									bindValue="value" (change)="onColorChanged($event)" [multiple]="true"
+									placeholder="Select a sizes">
+								</ng-select>
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['sizes'].touched && productForm.controls['sizes'].invalid">
+									{{ getErrorMessage(productForm, 'sizes') }}
+								</p>
+							</div>
+
+							<div>
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['colors'].touched && productForm.controls['colors'].invalid}"
+									class="product-label">Select colors</label>
+								<ng-select
+									[ngClass]="{'error': productForm.controls['colors'].touched && productForm.controls['colors'].invalid}"
+									class="custom" [items]="colorsOptions" bindLabel="viewValue" bindValue="value"
+									(change)="onColorChanged($event)" formControlName="colors" [multiple]="true"
+									placeholder="Select a colors">
+									<ng-template ng-option-tmp let-item="item" let-index="index" class="p-0">
+										<div class="flex gap-2 items-center w-full">
+											<div [style.backgroundColor]="item.color"
+												class="h-4 w-4 border border-black rounded-full">
+											</div>
+											<span>{{ item.viewValue}}</span>
+										</div>
+									</ng-template>
+								</ng-select>
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['colors'].touched && productForm.controls['colors'].invalid">
+									{{ getErrorMessage(productForm, 'colors') }}
+								</p>
+							</div>
+
+							<div class="flex flex-col gap-[5px]">
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['description'].touched && productForm.controls['description'].invalid}"
+									for="description" class="product-label">Description</label>
+								<textarea
+									[ngClass]="{'product-input-error border-red-500': productForm.controls['description'].touched && productForm.controls['description'].invalid}"
+									id="description" formControlName="description" placeholder="Type your description.."
+									class="product-textarea"></textarea>
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['description'].touched && productForm.controls['description'].invalid">
+									{{ getErrorMessage(productForm, 'description') }}
+								</p>
+							</div>
+
+						</div>
+
+						<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full"
+							text="Create Product"></app-button>
+
+					</form>
+				</div>
 
 			</div>
 

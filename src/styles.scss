@@ -1,45 +1,102 @@
-@use '@angular/material' as mat;
-
-@include mat.core();
-
-$ddsgnr-client-primary: mat.define-palette(mat.$indigo-palette);
-$ddsgnr-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-$ddsgnr-client-warn: mat.define-palette(mat.$red-palette);
-
-$ddsgnr-client-theme: mat.define-light-theme((color: (primary: $ddsgnr-client-primary,
-				accent: $ddsgnr-client-accent,
-				warn: $ddsgnr-client-warn,
-			)));
-
-
-@include mat.all-component-themes($ddsgnr-client-theme);
-
 @import '~typeface-roboto/index.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-	scrollbar-width: thin;
-	scrollbar-color: #10F2C5 #000;
+@import '~@ng-select/ng-select/themes/default.theme.css';
+
+// * {
+// 	scrollbar-width: thin;
+// 	scrollbar-color: #10F2C5 #000;
+// }
+
+// ::-webkit-scrollbar {
+// 	width: 13px;
+// }
+
+// ::-webkit-scrollbar-track {
+// 	background: #000;
+// }
+
+// ::-webkit-scrollbar-thumb {
+// 	background: #10F2C5;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+// 	background: #58c7b1;
+// }
+
+.custom .ng-select-container {
+	min-height: 40px;
+	border: 2px solid #131118 !important;
 }
 
-::-webkit-scrollbar {
-	width: 13px;
+.custom.error .ng-select-container {
+	border: 2px solid #ef4444 !important;
 }
 
-::-webkit-scrollbar-track {
-	background: #000;
+.custom .ng-placeholder {
+	color: #131118 !important;
 }
 
-::-webkit-scrollbar-thumb {
-	background: #10F2C5;
+.custom.error .ng-placeholder {
+	color: #ef4444 !important;
+	font-size: 18px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background: #58c7b1;
+.custom .ng-option {
+	color: #131118 !important;
+	border-top: 1px solid #131118;
+	border-bottom: 1px solid #131118;
+	font-weight: 500;
+	transition: all 0.1s ease-in-out;
+
+	&:hover {
+		background-color: #13111852 !important;
+	}
+}
+
+.custom.error .ng-option {
+	border-top: 1px solid #ef4444;
+	border-bottom: 1px solid #ef4444;
+
+	&:hover {
+		background-color: #13111852 !important;
+	}
+}
+
+.custom .ng-dropdown-panel {
+	border: 2px solid #131118;
+}
+
+.custom.error .ng-dropdown-panel {
+	border: 2px solid #ef4444;
+}
+
+.custom .ng-option-selected {
+	background-color: #131118 !important;
+	color: white !important;
+}
+
+.custom .ng-value-label {
+	background: #131118;
+	color: white;
+}
+
+.custom .ng-value-icon {
+	background: #131118 !important;
+	color: white !important;
+	transition: all 0.1s ease-in-out;
+
+	&:hover {
+		color: red !important;
+		background-color: #131118 !important;
+	}
+}
+
+.custom .ng-clear-wrapper {
+	color: #131118;
 }
 
 @layer components {
@@ -77,6 +134,22 @@ $ddsgnr-client-theme: mat.define-light-theme((color: (primary: $ddsgnr-client-pr
 
 	.auth-input-error {
 		@apply text-red-500 border-red-500 outline-red-500 placeholder:text-red-500;
+	}
+
+	.product-label {
+		@apply text-[14px] text-auth-black font-semibold;
+	}
+
+	.product-input {
+		@apply text-[16px] text-auth-black border-[2px] border-auth-black rounded-[5px] px-4 py-[6px] placeholder:text-black;
+	}
+
+	.product-input-error {
+		@apply text-red-500 border-red-500 outline-red-500 placeholder:text-red-500;
+	}
+
+	.product-textarea {
+		@apply border-[2px] border-black h-12 p-3 rounded-[5px] min-h-[180px] max-h-[250px] placeholder:text-black
 	}
 
 }
@@ -122,18 +195,4 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
 	-moz-appearance: textfield;
-}
-
-html,
-body {
-	height: 100%;
-}
-
-body {
-	margin: 0;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-ngx-dropzone {
-	height: 400px;
 }

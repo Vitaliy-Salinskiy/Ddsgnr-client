@@ -1,0 +1,15 @@
+<ngx-dropzone [ngClass]="{'dragging': isDragging}" (dragenter)="onDragEnter($event)" x (dragleave)="onDragLeave($event)"
+	tabindex="0" (change)="onSelectFile($event)" [ngStyle]="dropzoneStyle">
+	<div class="absolute inset-0 z-1" [ngClass]="{'bg-slate-200': isDragging}"></div>
+	<div *ngIf="!imageUrls.length"
+		class="z-[2] absolute w-[200px] xl:w-auto text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-black">
+		+ Add your .png .jpeg .jpg .webp images
+	</div>
+	<img class="w-full h-auto object-cover" *ngFor="let imageUrl of imageUrls" [src]="imageUrl">
+</ngx-dropzone>
+<div class="flex flex-col gap-2 items-start">
+	<button *ngIf="filesError" class="text-lg font-semibold text-red-500">{{filesError}}</button>
+
+	<button *ngIf="imageUrls.length" class="text-lg font-semibold cursor-pointer" (click)="clearFiles()">Clear
+		images</button>
+</div>

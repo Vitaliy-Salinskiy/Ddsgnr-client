@@ -4,12 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { ServicesComponent } from './components/services/services.component'
 import { ScaleDirective } from './directives/scale.directive';
 import { SocialListComponent } from './components/social-list/social-list.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -24,7 +26,6 @@ import { ButtonComponent } from './components/button/button.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 import { AboutComponent } from './components/about/about.component';
 import { SalesComponent } from './components/sales/sales.component';
-import { ServicesComponent } from './components/services/services.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -36,6 +37,7 @@ import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot
 import { OtpPageComponent } from './pages/otp-page/otp-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppDropzoneComponent } from './components/app-dropzone/app-dropzone.component';
 
 @NgModule({
 	declarations: [
@@ -44,6 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		AppHeaderComponent,
 		AppFooterComponent,
 		ScaleDirective,
+		ServicesComponent,
 		SocialListComponent,
 		HeroComponent,
 		HomePageComponent,
@@ -57,7 +60,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		CopyrightComponent,
 		AboutComponent,
 		SalesComponent,
-		ServicesComponent,
 		ProductsComponent,
 		ProductCardComponent,
 		ContactComponent,
@@ -67,7 +69,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		RegisterPageComponent,
 		ForgotPasswordPageComponent,
 		OtpPageComponent,
-		ProductFormComponent
+		ProductFormComponent,
+		AppDropzoneComponent
 	],
 	imports: [
 		BrowserModule,
@@ -77,7 +80,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		NgOtpInputModule,
 		ReactiveFormsModule,
 		BrowserAnimationsModule,
-		NgxDropzoneModule
+		NgxDropzoneModule,
+		NgSelectModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
