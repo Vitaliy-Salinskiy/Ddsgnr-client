@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { IProduct } from '../interfaces';
+import { CreateProductDto, IProduct } from '../interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class ProductService {
 	getProducts(): Observable<IProduct[]> {
 		const data = this.http.get<IProduct[]>(`${this.url}/products`);
 		return data;
+	}
+
+	createProduct(productDto: FormData): Observable<IProduct> {
+		return this.http.post<IProduct>(`${this.url}/products`, productDto, { withCredentials: true });
 	}
 
 }

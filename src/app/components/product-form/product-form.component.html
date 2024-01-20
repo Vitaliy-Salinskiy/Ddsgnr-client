@@ -1,6 +1,6 @@
 <div>
 	<div class="appContainer">
-		<div class="flex flex-col gap-10 py-12 py-28 xl:px-16">
+		<div class="flex flex-col gap-10 py-12 xl:px-16">
 
 			<div class="flex flex-col">
 				<h2 class="heading-2">Create New Product</h2>
@@ -39,6 +39,20 @@
 
 							<div class="flex flex-col gap-[5px]">
 								<label
+									[ngClass]="{'text-red-500': productForm.controls['brand'].touched && productForm.controls['brand'].invalid}"
+									class="product-label" for="brand">Brand of the Product</label>
+								<input
+									[ngClass]="{'product-input-error': productForm.controls['brand'].touched && productForm.controls['brand'].invalid}"
+									class="product-input" id="brand" type="text" formControlName="brand"
+									placeholder="Enter brand of the product">
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['brand'].touched && productForm.controls['brand'].invalid">
+									{{ getErrorMessage(productForm, 'brand') }}
+								</p>
+							</div>
+
+							<div class="flex flex-col gap-[5px]">
+								<label
 									[ngClass]="{'text-red-500': productForm.controls['price'].touched && productForm.controls['price'].invalid}"
 									class="product-label" for="name">Price of the Product</label>
 								<input
@@ -48,6 +62,21 @@
 								<p class="text-sm text-red-500"
 									*ngIf="productForm.controls['price'].touched && productForm.controls['price'].invalid">
 									{{ getErrorMessage(productForm, 'price') }}
+								</p>
+							</div>
+
+							<div>
+								<label
+									[ngClass]="{'text-red-500': productForm.controls['type'].touched && productForm.controls['type'].invalid}"
+									class="product-label" for="name">Price of the Product</label>
+								<ng-select
+									[ngClass]="{'error':  (productForm.controls['type'].touched && productForm.controls['type'].invalid)}"
+									class="custom create" formControlName="type" (change)="onTypeChange($event)"
+									[items]="typeOptions" bindLabel="viewValue" bindValue="value" placeholder="Select a type">
+								</ng-select>
+								<p class="text-sm text-red-500"
+									*ngIf="productForm.controls['type'].touched && productForm.controls['type'].invalid">
+									{{ getErrorMessage(productForm, 'type') }}
 								</p>
 							</div>
 

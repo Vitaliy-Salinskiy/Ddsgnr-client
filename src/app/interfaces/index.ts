@@ -58,3 +58,29 @@ export interface IResetPasswordDto {
 	email: string;
 	password: string;
 }
+
+export enum ProductType {
+	man = "man",
+	woman = "woman",
+	kid = "kid"
+}
+
+export enum Sizes {
+	XS = 'XS',
+	S = 'S',
+	M = 'M',
+	L = 'L',
+	XL = 'XL',
+	XXL = 'XXL'
+}
+
+export interface CreateProductDto {
+	readonly name: string;
+	readonly brand: string;
+	readonly colors: string;
+	readonly sizes: Sizes;
+	readonly type: ProductType;
+	readonly description?: string;
+	price: number;
+	images?: string[];
+}

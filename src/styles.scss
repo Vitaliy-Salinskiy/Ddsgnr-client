@@ -76,12 +76,20 @@
 
 .custom .ng-option-selected {
 	background-color: #131118 !important;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 	color: white !important;
 }
 
 .custom .ng-value-label {
 	background: #131118;
 	color: white;
+}
+
+.custom.create .ng-value-label {
+	background: transparent;
+	font-weight: 500;
+	color: #131118;
 }
 
 .custom .ng-value-icon {

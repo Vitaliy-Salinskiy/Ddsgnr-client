@@ -32,8 +32,10 @@ export const headerFeatures = [
 		route: "/cart"
 	},
 	{
-		name: 'Notifications',
-		icon: 'assets/header/notification.svg'
+		name: 'Create',
+		icon: 'assets/header/notification.svg',
+		route: "products/create"
+
 	}
 ]
 
@@ -146,7 +148,7 @@ export const contactUs = [
 ]
 
 export const DROPZONE_STYLE = {
-	'min-height.px': 580,
+	'min-height.px': 600,
 	'border': '2px dashed #000',
 	'position': 'relative',
 	'display': 'flex',
