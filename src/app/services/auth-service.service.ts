@@ -36,5 +36,13 @@ export class AuthService {
 			);
 	}
 
+	sendOtp(email: string): Observable<any> {
+		return this.http.post(`${this.apiUrl}/auth/otp`, { email }, { withCredentials: true });
+	}
+
+	verifyOtp(otp: string): Observable<any> {
+		return this.http.post(`${this.apiUrl}/auth/validate-otp`, { otp }, { withCredentials: true });
+	}
+
 
 }

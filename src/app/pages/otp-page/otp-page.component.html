@@ -5,7 +5,7 @@
 
 	<div class="w-full flex flex-col xl:flex-[3] px-6 sm:px-12">
 
-		<div class="group cursor-pointer w-16" routerLink="/auth/login">
+		<div class="group cursor-pointer w-16" routerLink="/auth/forgot-password">
 			<div class="flex gap-2 items-center">
 				<img src="/assets/auth/arrow-left.svg" alt="arrow-left"
 					class="transition-transform duration-200 group-hover:rotate-180">
@@ -24,6 +24,9 @@
 				<div class="w-full flex flex-row gap-4">
 					<ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
 				</div>
+
+				<p class="text-red-500 text-sm font-semibold mt-5" *ngIf="error">*{{error}}</p>
+
 
 				<app-button customClasses="text-white bg-auth-black hover:bg-white hover:text-auth-black w-full mt-[30px]"
 					text="Verify" routerLink="/auth/otp"></app-button>
