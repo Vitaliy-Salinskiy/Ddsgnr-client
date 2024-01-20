@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { IProfile, IToken, IUserDto } from '../interfaces';
+import { IProfile, IResetPasswordDto, IToken, IUserDto } from '../interfaces';
 
 @Injectable({
 	providedIn: 'root'
@@ -44,5 +44,8 @@ export class AuthService {
 		return this.http.post(`${this.apiUrl}/auth/validate-otp`, { otp }, { withCredentials: true });
 	}
 
+	resetPassword(resetPasswordDto: IResetPasswordDto): Observable<any> {
+		return this.http.post(`${this.apiUrl}/auth/reset-password`, { ...resetPasswordDto }, { withCredentials: true });
+	}
 
 }

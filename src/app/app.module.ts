@@ -39,6 +39,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppDropzoneComponent } from './components/app-dropzone/app-dropzone.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { ResetModalComponent } from './components/reset-modal/reset-modal.component';
 
 @NgModule({
 	declarations: [
@@ -72,7 +73,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 		OtpPageComponent,
 		ProductFormComponent,
 		AppDropzoneComponent,
-		CartItemComponent
+		CartItemComponent,
+		ResetModalComponent
 	],
 	imports: [
 		BrowserModule,

@@ -43,7 +43,6 @@ export interface IDeactivateComponent {
 	canExit: () => boolean | Promise<boolean> | Observable<boolean>;
 }
 
-
 export interface IColorOption {
 	value: string;
 	viewValue: string;
@@ -53,4 +52,9 @@ export interface IColorOption {
 export interface ISizeOption {
 	value: string;
 	viewValue: string;
+}
+
+export interface IResetPasswordDto {
+	email: string;
+	password: string;
 }

@@ -1,0 +1,64 @@
+<div class="fixed inset-0 flex justify-center items-center backdrop-blur-md">
+	<div class="sm:w-[432px] bg-white px-5 pt-[30px] pb-5 shadow-reset-modal border border-auth-gray rounded-md">
+
+		<ng-container [ngTemplateOutlet]="isChanged ? success : reset"></ng-container>
+
+		<ng-template #success>
+			<div class="flex flex-col justify-center items-center gap-[30px] text-center">
+				<div>
+					<img src="/assets/otp/check-circle.svg" alt="check-circle">
+				</div>
+				<div class="flex flex-col gap-[10px]">
+					<h2 class="text-2xl text-auth-black font-bold">Password Changed Successfully</h2>
+					<p class="text-base text-auth-black">Your password has been updated successfully</p>
+				</div>
+				<div class="w-full">
+					<app-button
+						customClasses="text-white py-2 bg-auth-black hover:bg-white hover:text-auth-black w-full h-10"
+						text="Back to login" routerLink="/auth/login"></app-button>
+				</div>
+			</div>
+		</ng-template>
+
+
+		<ng-template #reset>
+			<h2 class="text-auth-black text-2xl font-bold">Reset Password</h2>
+
+			<form class="mt-3 flex flex-col gap-5" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+				<div class="w-full flex flex-col gap-[5px]">
+					<label
+						[ngClass]="{'text-red-500': resetForm.controls['email'].invalid && resetForm.controls['email'].touched}"
+						for="email" class="auth-label">Email Address</label>
+					<input
+						[ngClass]="{'auth-input-error': resetForm.controls['email'].invalid && resetForm.controls['email'].touched}"
+						id="email" formControlName="email" class="auth-input h-10 rounded-md" type="email"
+						placeholder="Enter your email">
+					<p *ngIf="resetForm.controls['email'].touched && resetForm.controls['email'].invalid"
+						class="text-red-400 text-sm">
+						{{ getErrorMessage(resetForm, 'email') }}
+					</p>
+				</div>
+
+				<div class="w-full flex flex-col gap-[5px]">
+					<label
+						[ngClass]="{'text-red-500': resetForm.controls['password'].invalid && resetForm.controls['password'].touched}"
+						for="password" class="auth-label">Password</label>
+					<input
+						[ngClass]="{'auth-input-error': resetForm.controls['password'].invalid && resetForm.controls['password'].touched}"
+						id="password" formControlName="password" class="auth-input h-10 rounded-md" type="text"
+						placeholder="Enter your password">
+					<p *ngIf="resetForm.controls['password'].touched && resetForm.controls['password'].invalid"
+						class="text-red-400 text-sm">
+						{{ getErrorMessage(resetForm,'password') }}
+					</p>
+				</div>
+
+				<p class="text-red-500 text-sm font-semibold5" *ngIf="error">*{{error}}</p>
+
+				<app-button customClasses="text-white py-2 bg-auth-black hover:bg-white hover:text-auth-black w-full h-10"
+					text="Reset"></app-button>
+			</form>
+		</ng-template>
+
+	</div>
+</div>
