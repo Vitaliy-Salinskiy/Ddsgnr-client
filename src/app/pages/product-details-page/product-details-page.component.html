@@ -1,31 +1,27 @@
-<section>
+<section class="min-h-[800px]">
 	<div class="appContainer">
-		<div class="py-12 xl:py-36 flex gap-10 flex-col xl:flex-row xl:px-16">
+		<div class="py-16 xl:py-36 flex gap-10 flex-col xl:flex-row xl:px-16" *ngIf="product">
 
 			<div class="w-full xl:flex-[2]">
-				<div class="w-full h-[400px] sm:h-[530px] md:h-[600px] lg:-[650px] xl:h-[540px]">
-					<img
-						src="https://rukminim2.flixcart.com/image/850/1000/xif0q/jacket/j/l/q/l-1-no-blk001fb-jaket-original-imagthrjj7u7hsje.jpeg?q=90&crop=true"
-						alt="detail image" class="w-full h-full bg-gray-600 object-cover rounded-lg">
+				<div class="w-full h-[400px]  h-full">
+					<img [src]="'http://localhost:5000/' + product.images[0]" alt="detail image"
+						class="w-full h-full bg-gray-600 object-cover rounded-lg">
 				</div>
 			</div>
 
 			<div class="xl:flex-[2] flex flex-col gap-5">
 				<div class="flex flex-col gap-2">
-					<h1 class="text-3xl xl:text-4xl text-auth-black font-bold">YK Disney</h1>
-					<h2 class="text-lg text-auth-black font-medium">Whatever Lorem ipsum dolor sit amet.</h2>
-					<b>{{'119.99' | currency}}</b>
+					<h1 class="text-3xl xl:text-4xl text-auth-black font-bold">{{product.name}}</h1>
+					<h2 class="text-lg text-auth-black font-medium">{{product.brand}}</h2>
+					<b>{{product.price | currency}}</b>
 				</div>
 
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit laboriosam, ipsam consequatur obcaecati
-					recusandae facilis ipsum rem id praesentium sequi reprehenderit sunt alias, ut voluptate architecto
-					necessitatibus dolorum laudantium nulla dicta, maxime tenetur animi quaerat veritatis. Dolores, debitis?
-					Minima, voluptates?</p>
+				<p *ngIf="product.description">{{product.description}}</p>
 
 				<div class="flex flex-col gap-1">
 					<h3 class="text-[17px] font-medium">Colors</h3>
 					<div class="flex gap-3 flex-wrap">
-						<div *ngFor="let color of colors" [style.backgroundColor]="color"
+						<div *ngFor="let color of product.colors" [style.backgroundColor]="color"
 							class="h-10 w-10 rounded-md ring-2 ring-black ring-offset-2 ring-offset-white cursor-pointer">
 						</div>
 					</div>
@@ -36,7 +32,7 @@
 					<div class="flex gap-3 flex-wrap">
 						<div (click)="onSizeChange(size)"
 							[ngClass]="{'bg-white text-auth-black': size === activeSize, 'text-white': size !== activeSize}"
-							*ngFor="let size of sizes"
+							*ngFor="let size of product.sizes"
 							class="h-11 w-11 transition-colors cursor-pointer bg-auth-black border border-auth-black flex justify-center items-center rounded-md hover:bg-white hover:text-auth-black">
 							{{size}}</div>
 					</div>

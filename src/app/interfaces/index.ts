@@ -1,11 +1,14 @@
 import { Observable } from "rxjs";
 
 export interface IProduct {
-	brand: string;
-	image: string;
 	name: string;
+	brand: string;
 	price: number;
 	type: string;
+	description?: string;
+	images: string[];
+	colors: string[];
+	sizes: string[];
 	__v: number;
 	_id: string;
 }
@@ -77,10 +80,10 @@ export enum Sizes {
 export interface CreateProductDto {
 	readonly name: string;
 	readonly brand: string;
+	readonly price: number;
 	readonly colors: string;
 	readonly sizes: Sizes;
 	readonly type: ProductType;
 	readonly description?: string;
-	price: number;
-	images?: string[];
+	images: string[];
 }

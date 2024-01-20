@@ -30,3 +30,8 @@ export const getErrorMessage = (form: FormGroup, controlName: string) => {
 
 	return null;
 }
+
+export const sortSizes = (sizes: string[]): string[] => {
+	const order = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+	return sizes.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+}

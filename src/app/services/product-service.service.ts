@@ -19,6 +19,10 @@ export class ProductService {
 		return data;
 	}
 
+	getSingleProducts(id: string): Observable<IProduct> {
+		return this.http.get<IProduct>(`${this.url}/products/${id}`);
+	}
+
 	createProduct(productDto: FormData): Observable<IProduct> {
 		return this.http.post<IProduct>(`${this.url}/products`, productDto, { withCredentials: true });
 	}

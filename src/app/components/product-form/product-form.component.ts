@@ -1,8 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { AppDropzoneComponent } from '../app-dropzone/app-dropzone.component';
+import { Subscription } from 'rxjs';
+
 import { IColorOption, ISizeOption } from 'src/app/interfaces';
+import { AppDropzoneComponent } from '../app-dropzone/app-dropzone.component';
 import { ProductService } from 'src/app/services/product-service.service';
 import { getErrorMessage } from 'src/app/utils';
 
@@ -10,11 +12,13 @@ import { getErrorMessage } from 'src/app/utils';
 	selector: 'app-product-form',
 	templateUrl: './product-form.component.html',
 })
-export class ProductFormComponent {
+export class ProductFormComponent implements OnDestroy {
 	productForm: FormGroup;
 	files: File[] = [];
 	imagesError: string = '';
 	getErrorMessage = getErrorMessage;
+
+	productSubscription: Subscription;
 
 	@ViewChild(AppDropzoneComponent) dropzone: AppDropzoneComponent;
 
@@ -49,21 +53,22 @@ export class ProductFormComponent {
 		this.productForm = new FormGroup({
 			name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(35)]),
 			brand: new FormControl('', [Validators.required]),
-			description: new FormControl('', [Validators.minLength(3), Validators.maxLength(255)]),
+			description: new FormControl('', [Validators.minLength(3), Validators.maxLength(2000)]),
 			price: new FormControl('', [Validators.required, Validators.min(0.1), Validators.max(99999), Validators.pattern(/^(0|[1-9]\d*)(\.\d{1,2})?$/)]),
 			type: new FormControl(this.selectedType, [Validators.required]),
 			colors: new FormControl(this.selectedColors, [Validators.required, Validators.minLength(1)]),
 			sizes: new FormControl(this.selectedSizes, [Validators.required, Validators.minLength(1)]),
-			images: new FormControl(this.files, [Validators.required, Validators.minLength(1)]),
+			images: new FormControl(this.files),
 		})
 	}
 
 	onSubmit() {
+		console.log(this.productForm.controls['images'].valid, this.files.length);
 		if (this.files.length === 0) {
 			this.imagesError = 'Please select at least one image.';
 			return;
 		}
-		if (this.productForm.valid) {
+		if (this.productForm.valid && this.files.length > 0) {
 			const formData = new FormData();
 			for (const key in this.productForm.value) {
 				if (key !== 'images') {
@@ -79,7 +84,7 @@ export class ProductFormComponent {
 			}
 
 			this.productService.createProduct(formData).subscribe({
-				next: (data) => {
+				next: () => {
 					this.files = [];
 					this.selectedColors = [];
 					this.selectedSizes = [];
@@ -118,6 +123,12 @@ export class ProductFormComponent {
 	onSizeChanged(color: IColorOption[]) {
 		this.selectedSizes.push(color);
 		this.productForm.patchValue({ color: this.selectedSizes });
+	}
+
+	ngOnDestroy(): void {
+		if (this.productSubscription) {
+			this.productSubscription.unsubscribe();
+		}
 	}
 
 }

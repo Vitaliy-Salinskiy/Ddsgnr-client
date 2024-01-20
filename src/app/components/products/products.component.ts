@@ -28,8 +28,13 @@ export class ProductsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.productService.getProducts().subscribe((products) => {
-			this.products = products;
+		this.productService.getProducts().subscribe({
+			next: (products) => {
+				this.products = products;
+			},
+			error: (err) => {
+				console.error(err);
+			}
 		})
 	}
 

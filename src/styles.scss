@@ -6,26 +6,26 @@
 
 @import '~@ng-select/ng-select/themes/default.theme.css';
 
-// * {
-// 	scrollbar-width: thin;
-// 	scrollbar-color: #10F2C5 #000;
-// }
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #10F2C5 #000;
+}
 
-// ::-webkit-scrollbar {
-// 	width: 13px;
-// }
+::-webkit-scrollbar {
+	width: 13px;
+}
 
-// ::-webkit-scrollbar-track {
-// 	background: #000;
-// }
+::-webkit-scrollbar-track {
+	background: #000;
+}
 
-// ::-webkit-scrollbar-thumb {
-// 	background: #10F2C5;
-// }
+::-webkit-scrollbar-thumb {
+	background: #10F2C5;
+}
 
-// ::-webkit-scrollbar-thumb:hover {
-// 	background: #58c7b1;
-// }
+::-webkit-scrollbar-thumb:hover {
+	background: #58c7b1;
+}
 
 .custom .ng-select-container {
 	min-height: 40px;

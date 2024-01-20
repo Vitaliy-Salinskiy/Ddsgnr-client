@@ -1,5 +1,6 @@
-<div *ngIf="product && product.image" class="w-full flex flex-col items-center">
-	<img [src]="'http://localhost:5000/' + product.image" [alt]="product.name" class="bg-cover h-[304px] rounded-[5px]">
+<div *ngIf="product && product.images" class="w-full flex flex-col items-center">
+	<img [src]="'http://localhost:5000/' + product.images[0]" [alt]="product.name"
+		class="bg-cover h-[304px] rounded-[5px] cursor-pointer" [routerLink]="'/products/' + product._id">
 	<h5 class="text-[18px] font-semibold mt-4">{{product.name}}</h5>
 	<h6 class="text-sm">{{product.brand}}</h6>
 	<h4 class="text-[20px] font-semibold mt-2">{{product.price | currency}}</h4>
