@@ -5,10 +5,17 @@
 @tailwind utilities;
 
 @import '~@ng-select/ng-select/themes/default.theme.css';
+@import '~swiper/swiper-bundle.css';
 
 * {
 	scrollbar-width: thin;
-	scrollbar-color: #10F2C5 #000;
+	scrollbar-color: #10F2C5 #131313;
+}
+
+swiper-container {
+	--swiper-pagination-color: #131313;
+	--swiper-pagination-bullet-width: 10px;
+	--swiper-pagination-bullet-height: 10px;
 }
 
 ::-webkit-scrollbar {

@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { register } from 'swiper/element/bundle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppDropzoneComponent } from './components/app-dropzone/app-dropzone.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { ResetModalComponent } from './components/reset-modal/reset-modal.component';
+
+register();
 
 @NgModule({
 	declarations: [
@@ -88,6 +91,7 @@ import { ResetModalComponent } from './components/reset-modal/reset-modal.compon
 		NgSelectModule
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
